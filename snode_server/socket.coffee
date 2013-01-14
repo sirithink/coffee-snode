@@ -1,7 +1,7 @@
 # socket.io
 module.exports = (server) ->
     io = require('socket.io').listen server, {log:false}
-    conns = {};
+    conns = {}
     io.sockets.on 'connection', (socket) ->
         cid = socket.id
         for ccid in conns

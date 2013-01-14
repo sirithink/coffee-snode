@@ -6,7 +6,7 @@ socket = require './socket'
 http = require 'http'
 path = require 'path'
 
-app = express();
+app = express()
 
 # config
 app.configure ->
@@ -14,19 +14,19 @@ app.configure ->
     app.set 'views', __dirname + '/../views'
     app.set "view options", layout: true
     app.set 'view engine', 'coffee'
-    app.register '.coffee', require('coffeekup')
+    app.register '.coffee', require 'coffeekup'
     app.use express.favicon __dirname + '/../public/favicon.ico'
     app.use express.logger 'dev'
-    app.use express.bodyParser {uploadDir: __dirname + '/../public/temp'}
+    app.use express.bodyParser uploadDir: __dirname + '/../public/temp'
     app.use expressValidator
     app.use express.methodOverride
     app.use express.cookieParser
-    app.use express.session { secret: config.secret}
+    app.use express.session secret: config.secret
     app.use app.router
     app.use express.static path.join __dirname, '/../public'
     ###
     app.use (error, req, res, next) ->
-        res.render errer, { title: 'Sorry something bad happened!' }
+        res.render errer, title: 'Sorry something bad happened!'
     ###
 
 # 开发环境
