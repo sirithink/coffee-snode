@@ -1,4 +1,5 @@
 index = require './controllers/index'
+###
 signup = require './controllers/signup'
 login = require './controllers/login'
 user = require './controllers/user'
@@ -9,13 +10,15 @@ blog = require './controllers/blog'
 demo = require './controllers/demo'
 xml = require './controllers/xmlTest'
 admin = require './controllers/admin'
+###
 
 module.exports = (app) ->
     # 配置session 页面中使用 user 获取
-    app.all '*', index.auth
+    # app.all '*', index.auth
     # home page
     app.get '/', index.get
 
+###
     # 注册
     app.get '/signup', signup.get
     app.post '/signup', signup.validator, signup.post
@@ -59,3 +62,4 @@ module.exports = (app) ->
     app.get '/admin', admin.get
     app.all '/admin/*', admin.auth
     app.post '/admin/session', admin.post
+###
