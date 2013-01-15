@@ -4,7 +4,7 @@ cloudServices = process.env.VCAP_SERVICES
 # 端口
 exports.port = cloudPort || 3000
 # url供socket.io使用
-exports.domain = cloudPort ? 'http://snode.hp.af.cm' : 'http://localhost:3000'
+exports.domain = if cloudPort then 'http://snode.hp.af.cm' else 'http://localhost:3000'
 # 数据库url
 if cloudServices
     env = JSON.parse process.env.VCAP_SERVICES

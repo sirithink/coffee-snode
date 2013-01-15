@@ -3,11 +3,13 @@
   mailUtil
 */
 
-var config, email, fs, message, server;
+var config, email, fs, jade, message, server;
 
 email = require('emailjs/email');
 
 config = require('../config');
+
+jade = require('jade');
 
 fs = require('fs');
 
@@ -26,9 +28,16 @@ message = {
   ]
 };
 
+/*
+  use user.email 
+      user.nick_name 
+  and code
+*/
+
+
 exports.sendSignup = function(user, code) {
   var actual, baseUrl, fn, path, str, verifyUrl;
-  path = __dirname + '/../../views/mail_template/signup_send.coffee';
+  path = __dirname + '/../../views/mail_template/signup_send.jade';
   str = fs.readFileSync(path, 'utf8');
   fn = jade.compile(str, {
     filename: path,
@@ -46,9 +55,16 @@ exports.sendSignup = function(user, code) {
   message.subject = "欢迎加Snode社区";
   message.attachment[0].data = actual.trim();
   return server.send(message, function(err, message) {
-    return console.log(err || message);
+    if (err) {
+      return console.log(err);
+    }
   });
 };
+
+/*
+  mail url
+*/
+
 
 exports.emailUrl = function(mail) {
   var url;

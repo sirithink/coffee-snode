@@ -7,9 +7,7 @@ cloudServices = process.env.VCAP_SERVICES;
 
 exports.port = cloudPort || 3000;
 
-exports.domain = cloudPort != null ? cloudPort : {
-  'http://snode.hp.af.cm': 'http://localhost:3000'
-};
+exports.domain = cloudPort ? 'http://snode.hp.af.cm' : 'http://localhost:3000';
 
 if (cloudServices) {
   env = JSON.parse(process.env.VCAP_SERVICES);

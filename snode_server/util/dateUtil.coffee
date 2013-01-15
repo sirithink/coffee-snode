@@ -14,9 +14,9 @@ Date.prototype.format = (format) ->
         "S"  : @getMilliseconds()  # millisecond
 
     if /(y+)/.test format
-        format = format.replace RegExp.$1 (@getFullYear() + "").substr(4 - RegExp.$1.length)
+        format = format.replace RegExp.$1, (@getFullYear() + "").substr 4 - RegExp.$1.length
 
-    for k in o
+    for k of o
        if new RegExp("(" + k + ")").test format
             format = format.replace RegExp.$1, 
               if RegExp.$1.length is 1 then o[k] else ("00" + o[k]).substr ("" + o[k]).length

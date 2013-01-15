@@ -18,7 +18,8 @@ admin = require './controllers/admin'
 
 
 module.exports = function(app) {
-  return app.get('/', index.get);
+  app.get('/', index.get);
+  return app.get('/mail', index.mail);
 };
 
 /*

@@ -17,6 +17,8 @@ module.exports = (app) ->
     # app.all '*', index.auth
     # home page
     app.get '/', index.get
+    
+    app.get '/mail', index.mail
 
 ###
     # 注册

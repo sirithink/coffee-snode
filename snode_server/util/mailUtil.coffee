@@ -1,9 +1,10 @@
 ###
   mailUtil
 ###
-email   = require 'emailjs/email'
+email  = require 'emailjs/email'
 config = require '../config'
-fs = require 'fs'
+jade   = require 'jade'
+fs     = require 'fs'
 
 # mail server
 server  = email.server.connect config.email
@@ -23,35 +24,29 @@ message =
 
 # send the message and get a callback with an error or details of the message that was sent
 # server.send(message, function(err, message) { console.log(err || message) })
+###
+  use user.email 
+      user.nick_name 
+  and code    
+###
 exports.sendSignup = (user, code) ->
-    path = __dirname + '/../../views/mail_template/signup_send.coffee'
+    path = __dirname + '/../../views/mail_template/signup_send.jade'
     str = fs.readFileSync(path, 'utf8')
-    fn = jade.compile str,  filename: path, pretty: true 
+    fn = jade.compile str, filename: path, pretty: true 
     baseUrl = config.domain
     verifyUrl = baseUrl + '/finish?code=' + code
     actual = fn user: user.nick_name, baseUrl: baseUrl, verifyUrl: verifyUrl 
-
+    
     message.to = user.email
     message.text = "欢迎加Snode社区"
     message.subject = "欢迎加Snode社区"
     message.attachment[0].data = actual.trim()
     server.send message, (err, message) ->
-        console.log err or message
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# mail url
+        console.log err if err
+        
+###
+  mail url
+###  
 exports.emailUrl = (mail) ->
     url = 'http://'
     if mail.indexOf('mail') isnt -1
