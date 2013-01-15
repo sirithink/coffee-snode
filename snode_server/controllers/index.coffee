@@ -1,9 +1,11 @@
 dateUtil = require '../util/dateUtil'
-mailUtil = require '../util/mailUtil'
+mailUtil = require '../util/mailUtil' 
+dao = require '../models/DBDao'
 # index
 exports.get = (req, res) ->
     df = dateUtil.time()
     console.log "time:\t#{df}"
+    dao.all()
     res.render 'index', title: 'snode'
 
 exports.mail = (req, res) ->
