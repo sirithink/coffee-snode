@@ -19,7 +19,7 @@ cake watch
 Open another terminal do:
 
 ```
-node server.js
+node app.js
 ```
 
 # Guide
