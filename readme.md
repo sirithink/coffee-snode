@@ -1,7 +1,9 @@
 #About
 
 This is nodejs Blog for Express.js, Node.js and MySQL. 
-The view engine is CoffeeKup. In this example code I try to demo a bit of everything: sessions, database, ajax, etc. Hopefully it will help people like myself to start.
+The view engine is Jade. 
+In this example code I try to demo a bit of everything: sessions, database, ajax, etc.
+Hopefully it will help people like myself to start.
 
 #Setup Database
 
