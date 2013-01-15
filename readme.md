@@ -21,7 +21,3 @@ Open another terminal do:
 ```
 node app.js
 ```
-
-# Guide
-
-Click [here](http://coffeemvc.appinmotion.com/guide)
