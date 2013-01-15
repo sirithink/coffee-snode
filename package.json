@@ -1,5 +1,5 @@
 {
-  "name": "snode",
+  "name": "snode-coffee",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "express": "3.0.3",
     "express-validator": "*",
     "jade": "*",
-    "coffeekup": "*",
     "orm": "2.0.0-alpha7",
     "emailjs": "*",
     "socket.io": "*"

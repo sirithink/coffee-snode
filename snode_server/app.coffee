@@ -46,4 +46,4 @@ server = http.createServer(app).listen app.get('port'), ->
     console.log "listening on port " + app.get 'port'
 
 # socket.io
-# socket server
+socket server
