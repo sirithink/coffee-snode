@@ -10,12 +10,21 @@ config = require('../config');
 FastLegS.connect(config.db);
 
 User = FastLegS.Base.extend({
-  tableName: 'user',
+  tableName: 'user_info',
   primaryKey: 'id'
 });
 
-exports.all = function(callback) {
-  return User.find({}, function(err, results) {
+/*
+User findById
+*/
+
+
+exports.findById = function(id, callback) {
+  return User.find(id, function(err, results) {
     return callback(err, results);
   });
 };
+
+/*
+*/
+

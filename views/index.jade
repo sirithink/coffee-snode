@@ -1,52 +1,37 @@
 extends common/_layout
 block navbar
-    navIndex = 'active'
     include common/_navbar
 block content
     .page-header
         h1 Snode
-            small.pull-right ——记录在nodejs学习过程中踩的那些坑！
+            small.pull-right ——记录在nodejs学习过程中踩过的那些坑！
+    
+    .row
+        .span9
+            .media
+                .media-body
+                    h4.media-heading Media heading
+                    |Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
-    .media
-        a.pull-left(href="#")
-            img.media-object(data-src="", alt="64x64", style="width: 64px; height: 64px;", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2YQQ7DIAwEk7/xbN7EF1pxQKLUBGNAimB6bLCD14un5Q4hfK6DPzcC4ACOADPg4Bl4MQShABSAAlAAChysABgEg2AQDILBgyHAnyEwCAbBIBgEg2DwYAXA4CgGvfc//nHO/fkprZGeSeZbkbNm8iEH5IXVisyL0QiwIufTCZ8mgLWTZVzLLRp39Iy0KQLkL8y7XNts+X2Kj7HSM03OnqLztVMESBus2VfqakscS06LCMsEiJvRdlPqsCSAJmevCEsFSJuZ5YC8uNas0AoxJIDUkScMxvW1c56eWXNqCy7XDQtgffFb4hBg9JfgWzpp3QcOwAFciXElxpWYdYLuEAcFoAAUgAJQYIdpbq0BCkABKAAFoIB1gu4QBwWgABSAAlBgh2lureF4CnwBY4p/kL73J+sAAAAASUVORK5CYII=")
-        .media-body
-            h4.media-heading
-                a Media heading
-            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            .media
+                .media-body
+                    h4.media-heading Media heading
+                    |Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            .media
+                .media-body
+                    h4.media-heading Media heading
+                    |Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
-    .media
-        a.pull-left(href="#")
-            img.media-object(data-src="", alt="64x64", style="width: 64px; height: 64px;", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2YQQ7DIAwEk7/xbN7EF1pxQKLUBGNAimB6bLCD14un5Q4hfK6DPzcC4ACOADPg4Bl4MQShABSAAlAAChysABgEg2AQDILBgyHAnyEwCAbBIBgEg2DwYAXA4CgGvfc//nHO/fkprZGeSeZbkbNm8iEH5IXVisyL0QiwIufTCZ8mgLWTZVzLLRp39Iy0KQLkL8y7XNts+X2Kj7HSM03OnqLztVMESBus2VfqakscS06LCMsEiJvRdlPqsCSAJmevCEsFSJuZ5YC8uNas0AoxJIDUkScMxvW1c56eWXNqCy7XDQtgffFb4hBg9JfgWzpp3QcOwAFciXElxpWYdYLuEAcFoAAUgAJQYIdpbq0BCkABKAAFoIB1gu4QBwWgABSAAlBgh2lureF4CnwBY4p/kL73J+sAAAAASUVORK5CYII=")
-        .media-body
-            h4.media-heading
-                a Media heading
-            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-    .media
-        a.pull-left(href="#")
-            img.media-object(data-src="", alt="64x64", style="width: 64px; height: 64px;", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2YQQ7DIAwEk7/xbN7EF1pxQKLUBGNAimB6bLCD14un5Q4hfK6DPzcC4ACOADPg4Bl4MQShABSAAlAAChysABgEg2AQDILBgyHAnyEwCAbBIBgEg2DwYAXA4CgGvfc//nHO/fkprZGeSeZbkbNm8iEH5IXVisyL0QiwIufTCZ8mgLWTZVzLLRp39Iy0KQLkL8y7XNts+X2Kj7HSM03OnqLztVMESBus2VfqakscS06LCMsEiJvRdlPqsCSAJmevCEsFSJuZ5YC8uNas0AoxJIDUkScMxvW1c56eWXNqCy7XDQtgffFb4hBg9JfgWzpp3QcOwAFciXElxpWYdYLuEAcFoAAUgAJQYIdpbq0BCkABKAAFoIB1gu4QBwWgABSAAlBgh2lureF4CnwBY4p/kL73J+sAAAAASUVORK5CYII=")
-        .media-body
-            h4.media-heading
-                a Media heading
-            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-    .media
-        a.pull-left(href="#")
-            img.media-object(data-src="", alt="64x64", style="width: 64px; height: 64px;", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2YQQ7DIAwEk7/xbN7EF1pxQKLUBGNAimB6bLCD14un5Q4hfK6DPzcC4ACOADPg4Bl4MQShABSAAlAAChysABgEg2AQDILBgyHAnyEwCAbBIBgEg2DwYAXA4CgGvfc//nHO/fkprZGeSeZbkbNm8iEH5IXVisyL0QiwIufTCZ8mgLWTZVzLLRp39Iy0KQLkL8y7XNts+X2Kj7HSM03OnqLztVMESBus2VfqakscS06LCMsEiJvRdlPqsCSAJmevCEsFSJuZ5YC8uNas0AoxJIDUkScMxvW1c56eWXNqCy7XDQtgffFb4hBg9JfgWzpp3QcOwAFciXElxpWYdYLuEAcFoAAUgAJQYIdpbq0BCkABKAAFoIB1gu4QBwWgABSAAlBgh2lureF4CnwBY4p/kL73J+sAAAAASUVORK5CYII=")
-        .media-body
-            h4.media-heading
-                a Media heading
-            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-    .media
-        a.pull-left(href="#")
-            img.media-object(data-src="", alt="64x64", style="width: 64px; height: 64px;", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2YQQ7DIAwEk7/xbN7EF1pxQKLUBGNAimB6bLCD14un5Q4hfK6DPzcC4ACOADPg4Bl4MQShABSAAlAAChysABgEg2AQDILBgyHAnyEwCAbBIBgEg2DwYAXA4CgGvfc//nHO/fkprZGeSeZbkbNm8iEH5IXVisyL0QiwIufTCZ8mgLWTZVzLLRp39Iy0KQLkL8y7XNts+X2Kj7HSM03OnqLztVMESBus2VfqakscS06LCMsEiJvRdlPqsCSAJmevCEsFSJuZ5YC8uNas0AoxJIDUkScMxvW1c56eWXNqCy7XDQtgffFb4hBg9JfgWzpp3QcOwAFciXElxpWYdYLuEAcFoAAUgAJQYIdpbq0BCkABKAAFoIB1gu4QBwWgABSAAlBgh2lureF4CnwBY4p/kL73J+sAAAAASUVORK5CYII=")
-        .media-body
-            h4.media-heading
-                a Media heading
-            | Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-    include common/_pager
+            include common/_pager
+        .span3
+            tbox
+                .tbox_header
+                     span.col_fade 近期文章
+                .tbox_content
+                     ul.unstyled
+                        li
+                            p
+                                a(href="#", title="nodejs  base64转换问题。") nodejs  base64转换问题。
+                                
 block script
     script(charset="UTF-8")

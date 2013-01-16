@@ -11,7 +11,9 @@ exports.get = function(req, res) {
   var df;
   df = dateUtil.time();
   console.log("time:\t" + df);
-  dao.all();
+  dao.all(function(err, results) {
+    return console.log(err || results);
+  });
   return res.render('index', {
     title: 'snode'
   });

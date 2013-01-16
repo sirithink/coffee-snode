@@ -12,6 +12,11 @@ xml = require './controllers/xmlTest'
 admin = require './controllers/admin'
 ###
 
+###
+  admin
+###
+adminLogin = require './controllers/admin/login'
+
 module.exports = (app) ->
     # 配置session 页面中使用 user 获取
     # app.all '*', index.auth
@@ -19,6 +24,14 @@ module.exports = (app) ->
     app.get '/', index.get
     
     app.get '/mail', index.mail
+    
+    ###
+    admin
+    ###
+    app.get '/admin', adminLogin.get
+    app.get '/admin/logout', adminLogin.logout
+    app.post '/admin/session', adminLogin.post
+    app.all '/admin/*', adminLogin.auth
 
 ###
     # 注册

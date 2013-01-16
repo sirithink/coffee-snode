@@ -5,7 +5,8 @@ dao = require '../models/DBDao'
 exports.get = (req, res) ->
     df = dateUtil.time()
     console.log "time:\t#{df}"
-    dao.all()
+    dao.all (err, results) ->
+      console.log err or results 
     res.render 'index', title: 'snode'
 
 exports.mail = (req, res) ->
