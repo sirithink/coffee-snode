@@ -1,4 +1,5 @@
 index = require './controllers/index'
+upload = require './controllers/upload'
 ###
 signup = require './controllers/signup'
 login = require './controllers/login'
@@ -16,6 +17,7 @@ admin = require './controllers/admin'
   admin
 ###
 adminLogin = require './controllers/admin/login'
+adminBlog = require './controllers/admin/blog'
 
 module.exports = (app) ->
     # 配置session 页面中使用 user 获取
@@ -26,12 +28,19 @@ module.exports = (app) ->
     app.get '/mail', index.mail
     
     ###
+    editor图片上传
+    ###
+    app.post '/upload/editor', upload.validator, upload.editor
+    
+    ###
     admin
     ###
     app.get '/admin', adminLogin.get
     app.get '/admin/logout', adminLogin.logout
     app.post '/admin/session', adminLogin.post
     app.all '/admin/*', adminLogin.auth
+    app.get '/admin/blog/add', adminBlog.get
+    app.post '/admin/blog/add', adminBlog.post
 
 ###
     # 注册

@@ -1,6 +1,6 @@
 extends ../common/_admin-layout
 block meta
-    link(rel="stylesheet", type="text/css", href="/stylesheets/admin.css")
+    link(rel="stylesheet", type="text/css", href="/css/admin.css")
     include ../common/_kindeditor
 block navbar
     include ../common/_admin-navbar
@@ -16,18 +16,17 @@ block content
                             i.icon-edit
                             |Blog
                     .box-content
-                        form
+                        form(action="/admin/blog/add", method="post")
                             fieldset
                                 legend 撰写博文
                                 .control-group
                                     label.control-label 标题
                                     .controls
-                                        input.input-block-level(type="text")
-
+                                        input.input-block-level(type="text", name="blog[title]")
                                 .control-group
                                     label 内容
                                     div.controls
-                                        textarea#editor(name="answer.content")
+                                        textarea#editor(name="blog[content]") 
                                 .form-actions
                                     button.btn.btn-primary.pull-right(type="submit") 发表
                                     button.btn.pull-right(type="reset") 取消
