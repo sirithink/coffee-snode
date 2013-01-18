@@ -1,5 +1,6 @@
 index = require './controllers/index'
 upload = require './controllers/upload'
+blog = require './controllers/blog'
 ###
 signup = require './controllers/signup'
 login = require './controllers/login'
@@ -31,6 +32,11 @@ module.exports = (app) ->
     editor图片上传
     ###
     app.post '/upload/editor', upload.validator, upload.editor
+    
+    ###
+    blog 
+    ###
+    app.get('/blog/:id', blog.get);
     
     ###
     admin

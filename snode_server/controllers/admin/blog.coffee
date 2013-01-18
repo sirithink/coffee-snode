@@ -6,8 +6,5 @@ exports.get = (req, res) ->
 exports.post = (req, res) ->
     blog = req.body.blog
     console.log blog
-    
     dao.save blog, (err, results) ->
-        console.log results
-
-    res.render 'admin/blog-add', title: 'snode写博'
+        res.render 'admin/blog-add', title: 'snode写博'

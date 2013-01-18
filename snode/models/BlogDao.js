@@ -46,3 +46,14 @@ exports.findById = function(id, callback) {
     return callback(err, results);
   });
 };
+
+/*
+Blog all
+*/
+
+
+exports.all = function(callback) {
+  return Blog.find({}, function(err, results) {
+    return callback(err, results);
+  });
+};

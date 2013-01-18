@@ -13,10 +13,9 @@ exports.post = function(req, res) {
   var blog;
   blog = req.body.blog;
   console.log(blog);
-  dao.save(blog, function(err, results) {
-    return console.log(results);
-  });
-  return res.render('admin/blog-add', {
-    title: 'snode写博'
+  return dao.save(blog, function(err, results) {
+    return res.render('admin/blog-add', {
+      title: 'snode写博'
+    });
   });
 };

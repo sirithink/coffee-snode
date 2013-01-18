@@ -5,17 +5,18 @@ dateUtil = require('../util/dateUtil');
 
 mailUtil = require('../util/mailUtil');
 
-dao = require('../models/DBDao');
+dao = require('../models/BlogDao');
 
 exports.get = function(req, res) {
   var df;
   df = dateUtil.time();
   console.log("time:\t" + df);
-  dao.all(function(err, results) {
-    return console.log(err || results);
-  });
-  return res.render('index', {
-    title: 'snode'
+  return dao.all(function(err, results) {
+    console.log(err || results);
+    return res.render('index', {
+      title: 'snode',
+      blogs: results
+    });
   });
 };
 

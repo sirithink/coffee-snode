@@ -3,19 +3,14 @@ block navbar
     include common/_navbar
 block content
     .page-header
-        h1 Snode
-            small.pull-right ——记录在nodejs学习过程中踩过的那些坑！
+        h1 #{blog.title}
     
     .row
         .span9
-           - blogs.forEach(function(item){
             .media
-                .media-body
-                    h4.media-heading
-                        a(href="/blog/#{item.id}", title="#{item.title}") #{item.title}
-                    !{item.content}
-           - })
-            include common/_pager
+                .media-body #{blog.content}
+
+                include common/_duoshuo
         .span3
             tbox
                 .tbox_header

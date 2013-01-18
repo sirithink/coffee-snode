@@ -35,5 +35,12 @@ Blog findById
 exports.findById = (id, callback) ->
   Blog.find id, (err, results) ->
     callback err, results
+
+###
+Blog all
+###
+exports.all = (callback) ->
+  Blog.find {}, (err, results) ->
+    callback err, results
     
     

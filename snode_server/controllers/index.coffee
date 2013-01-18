@@ -1,13 +1,15 @@
 dateUtil = require '../util/dateUtil'
-mailUtil = require '../util/mailUtil' 
-dao = require '../models/DBDao'
+mailUtil = require '../util/mailUtil'
+
+# dao
+dao = require '../models/BlogDao'
 # index
 exports.get = (req, res) ->
     df = dateUtil.time()
     console.log "time:\t#{df}"
     dao.all (err, results) ->
       console.log err or results 
-    res.render 'index', title: 'snode'
+      res.render 'index', title: 'snode', blogs: results
 
 exports.mail = (req, res) ->
     user = 
