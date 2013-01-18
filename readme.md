@@ -1,25 +1,26 @@
-#About
+#简介
+这是一个nodejs的博客
 
-This is nodejs Blog for Express.js, Node.js and MySQL. 
-The view engine is Jade. 
-In this example code I try to demo a bit of everything: sessions, database, ajax, etc.
-Hopefully it will help people like myself to start.
+采用 `Express.js` mvc框架，`MySQL`数据库和`Jade`模版引擎
 
-#Setup Database
+使用CoffeeScript编写
 
-* Edit coffee_server/config.coffee and set the contants with "DB_" prefix
-* Import this sql script: db_create.sql
+#build and run
+将CoffeeScript编译成js
 
-#Run
-
-Open a terminal do: 
-
+打开命令行build: 
 ```
-cake watch
+build.bat
 ```
 
-Open another terminal do:
+打开另一个run:
 
 ```
-node app.js
+strat.bat
 ```
+
+请删除掉views/common/_layout.jade中的百度统计代码！
+
+如果有不明白或问题可联系email：596392912@qq.com Thanks！
+
+灵感来自 [coffee-mvc](https://github.com/xizhang/coffee-mvc)
