@@ -22,10 +22,9 @@ app.configure ->
     app.use express.session secret: config.secret
     app.use app.router
     app.use express.static path.join __dirname, '/../public'
-    ###
+    
     app.use (error, req, res, next) ->
-        res.render errer, title: 'Sorry something bad happened!'
-    ###
+        res.render error, title: 'Sorry something bad happened!'
 
 # 开发环境
 app.configure 'development', ->

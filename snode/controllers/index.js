@@ -11,11 +11,25 @@ exports.get = function(req, res) {
   var df;
   df = dateUtil.time();
   console.log("time:\t" + df);
-  return dao.all(function(err, results) {
-    console.log(err || results);
+  return dao.all({
+    del_status: 0
+  }, {
+    only: ['id', 'title', 'update_time'],
+    order: ['-id']
+  }, function(err, blogs) {
+    var b, blog, _i, _len;
+    console.log(err || blogs);
+    for (_i = 0, _len = blogs.length; _i < _len; _i++) {
+      blog = blogs[_i];
+      for (b in blog) {
+        if (blog[b] instanceof Date) {
+          blog[b] = dateUtil.format(blog[b]);
+        }
+      }
+    }
     return res.render('index', {
       title: 'snode',
-      blogs: results
+      blogs: blogs
     });
   });
 };

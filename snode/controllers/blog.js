@@ -5,7 +5,12 @@ dao = require('../models/BlogDao');
 
 exports.get = function(req, res) {
   return dao.findById(req.params.id, function(err, blog) {
-    return dao.all(function(err, blogs) {
+    return dao.all({
+      del_status: 0
+    }, {
+      only: ['id', 'title'],
+      order: ['-id']
+    }, function(err, blogs) {
       return res.render('blog', {
         title: 'snode',
         blog: blog,

@@ -42,7 +42,10 @@ Blog findById
 
 
 exports.findById = function(id, callback) {
-  return Blog.find(id, function(err, results) {
+  return Blog.findOne({
+    id: id,
+    del_status: 0
+  }, function(err, results) {
     return callback(err, results);
   });
 };
@@ -52,8 +55,8 @@ Blog all
 */
 
 
-exports.all = function(callback) {
-  return Blog.find({}, function(err, results) {
+exports.all = function(obj, only, callback) {
+  return Blog.find(obj, only, function(err, results) {
     return callback(err, results);
   });
 };

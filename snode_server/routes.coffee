@@ -45,8 +45,11 @@ module.exports = (app) ->
     app.get '/admin/logout', adminLogin.logout
     app.post '/admin/session', adminLogin.post
     app.all '/admin/*', adminLogin.auth
-    app.get '/admin/blog/add', adminBlog.get
-    app.post '/admin/blog/add', adminBlog.post
+    app.all '/admin/index', adminLogin.index
+    app.get '/admin/blog/add', adminBlog.getAdd
+    app.post '/admin/blog/add', adminBlog.postAdd
+    app.get '/admin/blog/edit', adminBlog.getEdit
+    app.post '/admin/blog/edit', adminBlog.postEdit
 
 ###
     # 注册

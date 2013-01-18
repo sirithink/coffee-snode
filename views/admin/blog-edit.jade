@@ -8,7 +8,7 @@ block content
     .row-fluid
         .span2
             // nav active
-            addClass = 'yes'
+            editClass = 'yes'
             include ../common/_admin-sidebar-nav
         .span10
             .row-fluid
@@ -18,7 +18,7 @@ block content
                             i.icon-edit
                             |Blog
                     .box-content
-                        form(action="/admin/blog/add", method="post")
+                        form(action="/admin/blog/edit", method="post")
                             fieldset
                                 legend 撰写博文
                                 .control-group

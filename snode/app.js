@@ -33,12 +33,12 @@ app.configure(function() {
     secret: config.secret
   }));
   app.use(app.router);
-  return app.use(express["static"](path.join(__dirname, '/../public')));
-  /*
-      app.use (error, req, res, next) ->
-          res.render errer, title: 'Sorry something bad happened!'
-  */
-
+  app.use(express["static"](path.join(__dirname, '/../public')));
+  return app.use(function(error, req, res, next) {
+    return res.render(error, {
+      title: 'Sorry something bad happened!'
+    });
+  });
 });
 
 app.configure('development', function() {

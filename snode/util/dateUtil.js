@@ -27,7 +27,7 @@ Date.prototype.format = function(format) {
 };
 
 /*
- 时间格式化
+ 时间格式化 当前时间
  yyyy-MM-dd hh:mm:ss
  @return {*}
 */
@@ -35,4 +35,14 @@ Date.prototype.format = function(format) {
 
 exports.time = function() {
   return new Date().format("yyyy-MM-dd hh:mm:ss");
+};
+
+/*
+ 时间格式化 传递的时间
+ yyyy-MM-dd hh:mm:ss
+*/
+
+
+exports.format = function(date) {
+  return date.format("yyyy-MM-dd hh:mm:ss");
 };

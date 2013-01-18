@@ -35,6 +35,12 @@ exports.post = function(req, res) {
   });
 };
 
+exports.index = function(req, res) {
+  return res.render('admin/index', {
+    title: 'Snode管理后台'
+  });
+};
+
 exports.logout = function(req, res) {
   req.session.destroy();
   res.clearCookie('snode_admin', {

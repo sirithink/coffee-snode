@@ -10,7 +10,7 @@ exports.auth = (req, res, next) ->
         next();
     else
         res.render 'admin/signin', title: 'Snode管理后台'
-    
+        
 exports.post = (req, res) ->
     admin = req.body.admin
     remember = req.body.remember
@@ -20,6 +20,9 @@ exports.post = (req, res) ->
     console.log admin
     req.session.admin = admin
     res.locals.admin = admin
+    res.render 'admin/index', title: 'Snode管理后台'
+    
+exports.index = (req, res) ->
     res.render 'admin/index', title: 'Snode管理后台'
     
 exports.logout = (req, res) ->

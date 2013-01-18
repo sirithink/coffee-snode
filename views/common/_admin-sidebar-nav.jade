@@ -1,12 +1,19 @@
+listClass = listClass == null ? '' : 'active'
+addClass  = addClass  == null ? '' : 'active'
+showClass = showClass == null ? '' : 'active'
+editClass = editClass == null ? '' : 'active'
+deleClass = deleClass == null ? '' : 'active'
 .well.sidebar-nav
     ul.nav.nav-list
         li.nav-header Blog
-        li.active
-            a(href="#") Blog List
-        li
+        li(class=listClass)
+            a(href="/admin/index") Blog List
+        li(class=addClass)
             a(href="/admin/blog/add") Blog Add
-        li
-            a(href="#") Blog Edit
-        li
-            a(href="#") Blog Delete
+        li(class=showClass)
+            a Blog Show    
+        li(class=editClass)
+            a Blog Edit
+        li(class=deleClass)
+            a Blog Delete
 //.well

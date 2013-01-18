@@ -3,12 +3,12 @@ block navbar
     include common/_navbar
 block content
     .page-header
-        h1 #{blog.title}
+        h3 #{blog.title}
     
     .row
         .span9
             .media
-                .media-body #{blog.content}
+                .media-body !{blog.content}
 
                 include common/_duoshuo
         .span3

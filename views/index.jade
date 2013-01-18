@@ -13,7 +13,7 @@ block content
                 .media-body
                     h4.media-heading
                         a(href="/blog/#{item.id}", title="#{item.title}") #{item.title}
-                    !{item.content}
+                    |#{item.update_time}
            - })
             include common/_pager
         .span3
