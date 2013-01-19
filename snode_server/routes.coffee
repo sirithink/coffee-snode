@@ -50,6 +50,16 @@ module.exports = (app) ->
     app.post '/admin/blog/add', adminBlog.postAdd
     app.get '/admin/blog/edit', adminBlog.getEdit
     app.post '/admin/blog/edit', adminBlog.postEdit
+    
+    ###
+    page note Found
+    ###
+    app.get '*', (req, res, next) ->
+        console.log(req.originalUrl);
+        if /.*\.(gif|jpg|jpeg|png|bmp|js|css)$/.test req.originalUrl
+            next()
+        else  
+            res.render 'error/404'
 
 ###
     # 注册

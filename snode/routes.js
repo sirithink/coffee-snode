@@ -55,7 +55,19 @@ module.exports = function(app) {
   app.get('/admin/blog/add', adminBlog.getAdd);
   app.post('/admin/blog/add', adminBlog.postAdd);
   app.get('/admin/blog/edit', adminBlog.getEdit);
-  return app.post('/admin/blog/edit', adminBlog.postEdit);
+  app.post('/admin/blog/edit', adminBlog.postEdit);
+  /*
+      page note Found
+  */
+
+  return app.get('*', function(req, res, next) {
+    console.log(req.originalUrl);
+    if (/.*\.(gif|jpg|jpeg|png|bmp|js|css)$/.test(req.originalUrl)) {
+      return next();
+    } else {
+      return res.render('error/404');
+    }
+  });
 };
 
 /*
