@@ -21,8 +21,13 @@ exports.postAdd = function(req, res) {
 };
 
 exports.getEdit = function(req, res) {
-  return res.render('admin/blog-edit', {
-    title: 'snode博客编辑'
+  return dao.findOne({
+    id: req.params.id
+  }, function(err, blog) {
+    return res.render('admin/blog-edit', {
+      title: 'snode博客编辑',
+      blog: blog
+    });
   });
 };
 
@@ -31,7 +36,7 @@ exports.postEdit = function(req, res) {
   blog = req.body.blog;
   console.log(blog);
   return dao.save(blog, function(err, results) {
-    return res.render('admin/blog-edit', {
+    return res.render('admin/index', {
       title: 'snode博客编辑'
     });
   });

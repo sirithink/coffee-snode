@@ -4,7 +4,10 @@ var dao;
 dao = require('../models/BlogDao');
 
 exports.get = function(req, res) {
-  return dao.findOne(req.params.id, function(err, blog) {
+  return dao.findOne({
+    id: req.params.id,
+    del_status: 0
+  }, function(err, blog) {
     return dao.all({
       del_status: 0
     }, {

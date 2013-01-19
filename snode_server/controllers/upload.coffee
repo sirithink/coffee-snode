@@ -1,6 +1,6 @@
-fs = require('fs')
-util = require('util')
-config = require('../config')
+fs = require 'fs'
+util = require 'util'
+config = require '../config'
 
 # 校验传图
 exports.validator = (req, res, next) ->

@@ -48,14 +48,13 @@ module.exports = (app) ->
     app.all '/admin/index', adminLogin.index
     app.get '/admin/blog/add', adminBlog.getAdd
     app.post '/admin/blog/add', adminBlog.postAdd
-    app.get '/admin/blog/edit', adminBlog.getEdit
-    app.post '/admin/blog/edit', adminBlog.postEdit
+    app.get '/admin/blog/edit/:id', adminBlog.getEdit
+    app.post '/admin/blog/edit/', adminBlog.postEdit
     
     ###
     page note Found
     ###
     app.get '*', (req, res, next) ->
-        console.log(req.originalUrl);
         if /.*\.(gif|jpg|jpeg|png|bmp|js|css)$/.test req.originalUrl
             next()
         else  

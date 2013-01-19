@@ -32,8 +32,8 @@ exports.save = (obj, callback) ->
 ###
 Blog findById
 ###
-exports.findOne = (id, callback) ->
-  Blog.findOne {id:id, del_status:0}, (err, results) ->
+exports.findOne = (obj, callback) ->
+  Blog.findOne obj, (err, results) ->
     callback err, results
 
 ###

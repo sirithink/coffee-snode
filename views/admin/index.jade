@@ -1,6 +1,5 @@
 extends ../common/_admin-layout
-block meta
-    style
+// block meta
 
 block navbar
     include ../common/_admin-navbar
@@ -14,57 +13,31 @@ block content
             table.table.table-bordered
                 thead
                     tr
-                        th #
-                        th First Name
-                        th Last Name
-                        th Username
+                        th id
+                        th 标题
+                        th 状态
                         th 操作
                 tbody
-                    tr
-                        td 1
-                        td Mark
-                        td Otto
-                        td @mdo
-                        td.row
-                            a.btn.btn-success.span3(href="#")
-                                i.icon-zoom-in.icon-white
-                                |查看
-                            a.btn.btn-info.span3(href="#")
-                                i.icon-edit.icon-white
-                                |编辑
-                            a.btn.btn-danger.span3(href="#")
-                                i.icon-trash.icon-white
-                                |删除
-                    tr
-                        td 2
-                        td Jacob
-                        td Thornton
-                        td @fat
-                        td.row
-                            a.btn.btn-success.span3(href="#")
-                                i.icon-zoom-in.icon-white
-                                |查看
-                            a.btn.btn-info.span3(href="#")
-                                i.icon-edit.icon-white
-                                |编辑
-                            a.btn.btn-danger.span3(href="#")
-                                i.icon-trash.icon-white
-                                |删除
-                    tr
-                        td 3
-                        td Larry
-                        td the Bird
-                        td @twitter
-                        td.row
-                            a.btn.btn-success.span3(href="#")
-                                i.icon-zoom-in.icon-white
-                                |查看
-                            a.btn.btn-info.span3(href="#")
-                                i.icon-edit.icon-white
-                                |编辑
-                            a.btn.btn-danger.span3(href="#")
-                                i.icon-trash.icon-white
-                                |删除
+                    - blogs.forEach(function(item){
+                        tr
+                            td #{item.id}
+                            td #{item.title}
+                            td 
+                                if item.del_status == '0'
+                                    span.badge.badge-success 正常
+                                if item.del_status == '1'
+                                    span.badge.badge-warning 已删
+                            td.row
+                                a.btn.btn-success.span3(href="/blog/#{item.id}", target="_blank")
+                                    i.icon-zoom-in.icon-white
+                                    |查看
+                                a.btn.btn-info.span3(href="/admin/blog/edit/#{item.id}")
+                                    i.icon-edit.icon-white
+                                    |编辑
+                                a.btn.btn-danger.span3(href="#")
+                                    i.icon-trash.icon-white
+                                    |删除
+                    - })
 
 block footer
     include ../common/_footer

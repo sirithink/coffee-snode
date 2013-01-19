@@ -41,11 +41,8 @@ Blog findById
 */
 
 
-exports.findOne = function(id, callback) {
-  return Blog.findOne({
-    id: id,
-    del_status: 0
-  }, function(err, results) {
+exports.findOne = function(obj, callback) {
+  return Blog.findOne(obj, function(err, results) {
     return callback(err, results);
   });
 };

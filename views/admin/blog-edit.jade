@@ -19,16 +19,34 @@ block content
                             |Blog
                     .box-content
                         form(action="/admin/blog/edit", method="post")
+                            input(type="hidden", name="blog[id]", value="#{blog.id}")
                             fieldset
                                 legend 撰写博文
                                 .control-group
                                     label.control-label 标题
                                     .controls
-                                        input.input-block-level(type="text", name="blog[title]")
+                                        input.input-block-level(type="text", name="blog[title]", value="#{blog.title}")
+                                .control-group
+                                    label.control-label 状态
+                                    .controls
+                                    - if (blog.del_status == '0')
+                                        label.checkbox.inline
+                                        input(type="radio", name="blog[del_status]", value="0", checked)
+                                        span.label.badge-success 正常
+                                        label.checkbox.inline
+                                        input(type="radio", name="blog[del_status]", value="1")
+                                        span.label.badge-warning 已删
+                                    - else
+                                        label.checkbox.inline
+                                        input(type="radio", name="blog[del_status]", value="0")
+                                        span.label.badge-success 正常
+                                        label.checkbox.inline
+                                        input(type="radio", name="blog[del_status]", value="1", checked)
+                                        span.label.badge-warning 已删
                                 .control-group
                                     label 内容
                                     div.controls
-                                        textarea#editor(name="blog[content]") 
+                                        textarea#editor(name="blog[content]") !{blog.content}
                                 .form-actions
                                     button.btn.btn-primary.pull-right(type="submit") 发表
                                     button.btn.pull-right(type="reset") 取消

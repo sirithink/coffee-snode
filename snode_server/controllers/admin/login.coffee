@@ -1,4 +1,6 @@
-codecUtil = require("../../util/codecUtil");
+codecUtil = require "../../util/codecUtil"
+dateUtil = require '../../util/dateUtil'
+dao = require '../../models/BlogDao'
 
 exports.get = (req, res) ->
     res.render 'admin/signin', title: 'Snode管理后台'
@@ -20,10 +22,12 @@ exports.post = (req, res) ->
     console.log admin
     req.session.admin = admin
     res.locals.admin = admin
-    res.render 'admin/index', title: 'Snode管理后台'
+    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
+        res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
 exports.index = (req, res) ->
-    res.render 'admin/index', title: 'Snode管理后台'
+    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
+        res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
 exports.logout = (req, res) ->
     req.session.destroy();

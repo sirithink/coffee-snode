@@ -1,8 +1,6 @@
 listClass = listClass == null ? '' : 'active'
 addClass  = addClass  == null ? '' : 'active'
-showClass = showClass == null ? '' : 'active'
 editClass = editClass == null ? '' : 'active'
-deleClass = deleClass == null ? '' : 'active'
 .well.sidebar-nav
     ul.nav.nav-list
         li.nav-header Blog
@@ -10,10 +8,6 @@ deleClass = deleClass == null ? '' : 'active'
             a(href="/admin/index") Blog List
         li(class=addClass)
             a(href="/admin/blog/add") Blog Add
-        li(class=showClass)
-            a Blog Show    
         li(class=editClass)
             a Blog Edit
-        li(class=deleClass)
-            a Blog Delete
 //.well
