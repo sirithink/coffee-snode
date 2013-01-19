@@ -27,8 +27,16 @@ exports.save = (obj, callback) ->
   Blog.create obj, (err, results) ->
     console.log err or results
     callback err, results
-  
-  
+
+###
+Blog update
+###
+exports.update = (obj, callback) ->
+  obj.update_time = dateUtil.time()
+  Blog.create obj, (err, results) ->
+    console.log err or results
+    callback err, results 
+ 
 ###
 Blog findById
 ###

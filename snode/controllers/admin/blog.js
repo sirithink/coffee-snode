@@ -35,9 +35,15 @@ exports.postEdit = function(req, res) {
   var blog;
   blog = req.body.blog;
   console.log(blog);
-  return dao.save(blog, function(err, results) {
-    return res.render('admin/index', {
-      title: 'snode博客编辑'
+  return dao.update(blog, function(err, results) {
+    return dao.all({}, {
+      only: ['id', 'title', 'del_status'],
+      order: ['-id']
+    }, function(err, blogs) {
+      return res.render('admin/index', {
+        title: 'Snode管理后台',
+        blogs: blogs
+      });
     });
   });
 };
