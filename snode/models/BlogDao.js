@@ -43,7 +43,9 @@ Blog update
 
 exports.update = function(obj, callback) {
   obj.update_time = dateUtil.time();
-  return Blog.create(obj, function(err, results) {
+  return Blog.update({
+    id: obj.id
+  }, obj, function(err, results) {
     console.log(err || results);
     return callback(err, results);
   });

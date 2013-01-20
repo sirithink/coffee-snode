@@ -12,6 +12,7 @@
     "mysql": "*",
     "FastLegS": "*",
     "emailjs": "*",
+    "log4js": "*",
     "socket.io": "*"
   }
 }

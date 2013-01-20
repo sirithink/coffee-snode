@@ -49,17 +49,19 @@ module.exports = (app) ->
     app.get '/admin/blog/add', adminBlog.getAdd
     app.post '/admin/blog/add', adminBlog.postAdd
     app.get '/admin/blog/edit/:id', adminBlog.getEdit
-    app.post '/admin/blog/edit/', adminBlog.postEdit
+    app.post '/admin/blog/edit', adminBlog.postEdit
+    # app.get '/admin/blog/del/:id', adminBlog.getDel
+    # app.post '/admin/blog/del', adminBlog.postDel
     
     ###
     page note Found
     ###
     app.get '*', (req, res, next) ->
-        if /.*\.(gif|jpg|jpeg|png|bmp|js|css)$/.test req.originalUrl
+        if /.*\.(gif|jpg|jpeg|png|bmp|js|css).*$/.test req.originalUrl
             next()
         else  
             res.render 'error/404'
-
+            
 ###
     # 注册
     app.get '/signup', signup.get
