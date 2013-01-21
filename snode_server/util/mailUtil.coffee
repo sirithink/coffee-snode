@@ -2,9 +2,9 @@
   mailUtil
 ###
 email  = require 'emailjs/email'
-config = require '../config'
 jade   = require 'jade'
 fs     = require 'fs'
+config = require '../config'
 
 # mail server
 server  = email.server.connect config.email

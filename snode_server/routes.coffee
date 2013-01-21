@@ -26,7 +26,8 @@ module.exports = (app) ->
     # home page
     app.get '/', index.get
     
-    app.get '/mail', index.mail
+    app.get '/mail', index.mailGet
+    app.post '/mail', index.mailPost
     
     ###
     editor图片上传

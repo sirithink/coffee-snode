@@ -7,11 +7,11 @@ var config, email, fs, jade, message, server;
 
 email = require('emailjs/email');
 
-config = require('../config');
-
 jade = require('jade');
 
 fs = require('fs');
+
+config = require('../config');
 
 server = email.server.connect(config.email);
 

@@ -1,0 +1,10 @@
+extends common/_layout
+block navbar
+    include common/_navbar
+block content
+    form(action="/mail", method="post")
+        fieldset
+            legend jade模版邮件发送
+            label emai
+            input(type="emai", name="email", placeholder="邮箱地址")
+            button.btn(type="submit") 发送
