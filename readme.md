@@ -1,7 +1,7 @@
 #简介
 这是一个nodejs的博客
 
-采用 `Express.js` mvc框架，`MySQL`数据库和`Jade`模版引擎
+采用 `Express.js 3.0` mvc框架，`MySQL`数据库和`Jade`模版引擎
 
 使用CoffeeScript编写
 
