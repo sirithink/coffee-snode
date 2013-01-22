@@ -41,7 +41,7 @@ exports.post = function(req, res) {
     res.locals.admin = admin;
     return dao.all({}, {
       only: ['id', 'title', 'del_status'],
-      order: ['-id']
+      order: ['id']
     }, function(err, blogs) {
       return res.render('admin/index', {
         title: 'Snode管理后台',
@@ -58,7 +58,7 @@ exports.post = function(req, res) {
 exports.index = function(req, res) {
   return dao.all({}, {
     only: ['id', 'title', 'del_status'],
-    order: ['-id']
+    order: ['id']
   }, function(err, blogs) {
     return res.render('admin/index', {
       title: 'Snode管理后台',

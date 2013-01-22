@@ -12,6 +12,7 @@
     "mysql": "*",
     "FastLegS": "*",
     "emailjs": "*",
+    "data2xml": "*",
     "log4js": "*",
     "socket.io": "*"
   }

@@ -32,3 +32,12 @@ exports.email = {
   host: "smtp.126.com",
   ssl: true
 };
+
+exports.rss = {
+  title: 'Snode：Node.js博客',
+  link: 'http://snode.hp.af.cm/',
+  language: 'zh-cn',
+  description: 'Snode：Node.js博客',
+  author: 'admin',
+  max_items: 20
+};

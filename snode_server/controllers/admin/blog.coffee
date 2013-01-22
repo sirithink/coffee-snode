@@ -17,5 +17,5 @@ exports.postEdit = (req, res) ->
     blog = req.body.blog
     console.log blog
     dao.update blog, (err, results) ->
-        dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
+        dao.all {}, only: ['id','title', 'del_status'], order: ['id'], (err, blogs) ->
             res.render 'admin/index', title: 'Snode管理后台', blogs: blogs

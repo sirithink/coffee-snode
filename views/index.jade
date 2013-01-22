@@ -17,10 +17,14 @@ block content
            - })
             include common/_pager
         .span3
-            tbox
-                .tbox_header
+            .tbox
+                script(charset="UTF-8")
+                    var nId = "fbb30074540693f33c4c8ef64765c6cd79d6957e68d752c5",nWidth="auto",sColor="light",sText="填写您的邮件地址:" ;
+                script(src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js", charset="gb18030")
+            .tbox
+                .header
                      span.col_fade 近期文章
-                .tbox_content
+                .content
                      ul.unstyled
                         - blogs.forEach(function(item){
                             li

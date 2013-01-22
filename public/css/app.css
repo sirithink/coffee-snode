@@ -99,3 +99,22 @@ img {
     padding-right: 20px;
     width: 290px;
 }
+.tbox{
+    margin: 3px 0px;
+    background-color: #fff;
+    border: 1px solid #DDDDDD;
+}
+.tbox .header{
+    padding: 10px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.tbox .content{
+    padding: 10px;
+    line-height: 16px;
+}
+.tbox p{
+    margin: 0 0 2px;
+}
+.col_fade{
+    color: #aaa;
+}

@@ -27,3 +27,13 @@ exports.email =
     password: "6693722"
     host:     "smtp.126.com"
     ssl:      true
+# rss 配置
+exports.rss =
+    title:        'Snode：Node.js博客'
+    link:         'http://snode.hp.af.cm/'
+    language:     'zh-cn'
+    description:  'Snode：Node.js博客'
+    author:       'admin'
+    # 最多获取的RSS Item数量
+    max_items: 20
+    

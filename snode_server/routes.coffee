@@ -1,6 +1,7 @@
 index = require './controllers/index'
 upload = require './controllers/upload'
 blog = require './controllers/blog'
+rss = require './controllers/rss'
 ###
 signup = require './controllers/signup'
 login = require './controllers/login'
@@ -26,8 +27,12 @@ module.exports = (app) ->
     # home page
     app.get '/', index.get
     
+    # mail
     app.get '/mail', index.mailGet
     app.post '/mail', index.mailPost
+    
+    # rss
+    app.get '/rss', rss.get
     
     ###
     editor图片上传
