@@ -41,3 +41,7 @@ exports.rss = {
   author: 'admin',
   max_items: 20
 };
+
+exports.logToken = {
+  token: process.env.LOGENTRIES_TOKEN
+};

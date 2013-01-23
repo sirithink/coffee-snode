@@ -1,5 +1,6 @@
 express = require 'express'
 expressValidator = require 'express-validator'
+logentries = require 'node-logentries'
 config = require './config'
 routes = require './routes'
 socket = require './socket'
@@ -7,6 +8,8 @@ http = require 'http'
 path = require 'path'
 
 app = express()
+# node-logentries api https://logentries.com/doc/appfog/
+log = logentries.logger config.logToken
 
 # config
 app.configure ->
@@ -43,6 +46,6 @@ routes app
 
 server = http.createServer(app).listen app.get('port'), ->
     console.log "listening on port " + app.get 'port'
-
+    log.info "listening on port " + app.get 'port'
 # socket.io
 socket server

@@ -36,4 +36,6 @@ exports.rss =
     author:       'admin'
     # 最多获取的RSS Item数量
     max_items: 20
-    
+# logentries log token api https://logentries.com/doc/appfog/
+exports.logToken =
+    token: process.env.LOGENTRIES_TOKEN

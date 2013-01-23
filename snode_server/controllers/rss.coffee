@@ -1,7 +1,10 @@
+logentries = require 'node-logentries'
 data2xml = require('data2xml')()
 config = require '../config'
 # dao
 dao = require '../models/BlogDao'
+# log
+log = logentries.logger config.logToken
 
 exports.get = (req, res) ->
     rss_obj = 
@@ -15,6 +18,7 @@ exports.get = (req, res) ->
     
     dao.all {del_status: 0}, only: ['id','title', 'content','update_time'], limit: config.max_items, order: ['id'], (err, blogs) ->
         console.log err or blogs
+        log.log "debug", err or blogs
         for key, value of blogs
             rss_obj.channel.item.push
                 title: value.title,

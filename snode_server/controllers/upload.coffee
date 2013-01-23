@@ -1,6 +1,10 @@
+logentries = require 'node-logentries'
 fs = require 'fs'
 util = require 'util'
 config = require '../config'
+
+# log
+log = logentries.logger config.logToken
 
 # 校验传图
 exports.validator = (req, res, next) ->
@@ -9,6 +13,7 @@ exports.validator = (req, res, next) ->
     if !/(\S+)(.JPG|.jpg|.JPEG|.jpeg|.GIF|.gif|.BMP|.bmp|.PNG|.png)/.test file_name
         fs.unlink tmp_path, (err) ->
             console.log err if err
+            log.log "debug", err if err
         res.json errors: 1, message: "亲，不支持这种格式的图片噢！"
     else
         next()
@@ -21,6 +26,7 @@ exports.editor = (req, res) ->
     # 发送邮件里的图片地址 必须为全路径
     img_path = config.domain + '/uploads/' + img_name
     console.log img_path
+    log.log "debug", img_path
     target_path = './public/uploads/' + img_name
 
     readStream = fs.createReadStream tmp_path

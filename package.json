@@ -13,7 +13,7 @@
     "FastLegS": "*",
     "emailjs": "*",
     "data2xml": "*",
-    "log4js": "*",
+    "node-logentries": "*",
     "socket.io": "*"
   }
 }

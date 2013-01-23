@@ -1,15 +1,18 @@
+logentries = require 'node-logentries'
 dateUtil = require '../util/dateUtil'
 mailUtil = require '../util/mailUtil'
 codecUtil = require '../util/codecUtil'
+config = require '../config'
 
 # dao
 dao = require '../models/BlogDao'
+# log
+log = logentries.logger config.logToken
 # index
 exports.get = (req, res) ->
-    df = dateUtil.time()
-    console.log "time:\t#{df}"
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
         console.log err or blogs
+        log.log "debug", err or blogs
         # format date
         for blog in blogs
             for b of blog
@@ -29,6 +32,7 @@ exports.mailPost = (req, res) ->
     mailUtil.sendSignup user, code
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
         console.log err or blogs
+        log.log "debug", err or blogs
         # format date
         for blog in blogs
             for b of blog
