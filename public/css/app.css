@@ -118,3 +118,21 @@ img {
 .col_fade{
     color: #aaa;
 }
+.backToTop {
+    width: 18px;
+    line-height: 1.2;
+    background-color: white;
+    color: gray;
+    padding: 8px 2px;
+    border: 1px dashed gray;
+    font-size: 12px;
+    text-align: center;
+    position: fixed;
+    _position: absolute;
+    right: 50px;
+    bottom: 100px;
+    _bottom: "auto";
+    cursor: pointer;
+    opacity: .6;
+    filter: Alpha(opacity=60);
+}
