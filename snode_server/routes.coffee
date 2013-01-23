@@ -1,5 +1,6 @@
 index = require './controllers/index'
 upload = require './controllers/upload'
+imgup = require './controllers/imgup'
 blog = require './controllers/blog'
 rss = require './controllers/rss'
 ###
@@ -37,7 +38,9 @@ module.exports = (app) ->
     ###
     editor图片上传
     ###
-    app.post '/upload/editor', upload.validator, upload.editor
+    # Cloudinary 图片上传
+    app.post '/upload/editor', imgup.validator, imgup.editor
+    # app.post '/upload/editor', upload.validator, upload.editor
     
     ###
     blog 
