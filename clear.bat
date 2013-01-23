@@ -8,3 +8,4 @@ rm Cakefile
 rm build.bat
 rm clear.bat
 rm strat.bat
+rm togitcafe.bat
