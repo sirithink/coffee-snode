@@ -35,14 +35,14 @@ exports.post = (req, res) ->
     if admin_name is admin.email and admin_pwd is admin.password
         req.session.admin = admin
         res.locals.admin = admin
-        dao.all {}, only: ['id','title', 'del_status'], order: ['id'], (err, blogs) ->
+        dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
             log.log "debug", err or blogs
             res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     else
         res.render 'admin/signin', title: 'Snode管理后台'
     
 exports.index = (req, res) ->
-    dao.all {}, only: ['id','title', 'del_status'], order: ['id'], (err, blogs) ->
+    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
         log.log "debug", err or blogs
         res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
