@@ -4,24 +4,12 @@ block navbar
 block content
     .page-header
         h3 #{blog.title}
-    
     .row
         .span9
             .media
                 .media-body !{blog.content}
-
                 include common/_duoshuo
         .span3
-            tbox
-                .tbox_header
-                     span.col_fade 近期文章
-                .tbox_content
-                     ul.unstyled
-                        - blogs.forEach(function(item){
-                            li
-                                p
-                                    a(href="/blog/#{item.id}", title="#{item.title}") #{item.title}
-                        - })
+            include common/_sidebar
                                 
 block script
-    script(charset="UTF-8")

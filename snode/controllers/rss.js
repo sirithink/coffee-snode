@@ -30,7 +30,7 @@ exports.get = function(req, res) {
   }, {
     only: ['id', 'title', 'content', 'update_time'],
     limit: config.max_items,
-    order: ['id']
+    order: ['-id']
   }, function(err, blogs) {
     var key, rss_content, value;
     console.log(err || blogs);

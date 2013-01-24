@@ -48,7 +48,7 @@ exports.postEdit = function(req, res) {
   return dao.update(blog, function(err, results) {
     return dao.all({}, {
       only: ['id', 'title', 'del_status'],
-      order: ['id']
+      order: ['-id']
     }, function(err, blogs) {
       log.log("debug", err || blogs);
       return res.render('admin/index', {

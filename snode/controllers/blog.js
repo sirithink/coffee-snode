@@ -18,7 +18,7 @@ exports.get = function(req, res) {
       del_status: 0
     }, {
       only: ['id', 'title'],
-      order: ['id']
+      order: ['-id']
     }, function(err, blogs) {
       console.log(err || blogs);
       log.log("debug", err || blogs);

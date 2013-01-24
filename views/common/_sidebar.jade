@@ -1,0 +1,26 @@
+.tbox
+    script(charset="UTF-8")
+        var nId = "fbb30074540693f33c4c8ef64765c6cd79d6957e68d752c5",nWidth="auto",sColor="light",sText="填写您的邮件地址:" ;
+    script(src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js", charset="gb18030")
+.tbox
+    .header
+         span.col_fade 近期文章
+    .content
+         ul.unstyled
+            - blogs.forEach(function(item){
+                li
+                    p
+                        - var title = item.title, reLen = 0; 
+                        - for (var i = 0, len = title.length; i < len; i++) {
+                                - if(reLen > 22) {
+                                -       title = title.substr(0, i) + '...'
+                                -       break
+                                - }      
+                                - if (title.charCodeAt(i) < 27 || title.charCodeAt(i) > 126){
+                                -       reLen += 2        
+                                - } else {
+                                -       reLen++ 
+                                - }        
+                        - } 
+                        a(href="/blog/#{item.id}", title="#{title}") #{title}
+            - })
