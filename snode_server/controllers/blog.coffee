@@ -13,4 +13,4 @@ exports.get = (req, res) ->
             if typeof blog == 'undefined' or typeof blogs == 'undefined'
                 res.render 'error/404'
             else    
-              res.render 'blog', title: 'snode', blog: blog, blogs: blogs
+              res.render 'blog', title: blog.title, blog: blog, blogs: blogs

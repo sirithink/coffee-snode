@@ -26,7 +26,7 @@ exports.get = function(req, res) {
         return res.render('error/404');
       } else {
         return res.render('blog', {
-          title: 'snode',
+          title: blog.title,
           blog: blog,
           blogs: blogs
         });
