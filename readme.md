@@ -26,12 +26,12 @@ build.bat
 strat.bat
 ```
 
-请删除掉views/common/_layout.jade中的百度统计代码！
+请删除掉views/common/_layout.jade中的`百度统计`代码！
 
 # 代码清理
 使用`clear.bat`会在项目同级目录生成一个`temp`目录，
 
-`temp`中的代码用来上传到Appfog！
+`temp`中的代码用来上传到`Appfog`！
 ```
 clear.bat
 ```
