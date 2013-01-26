@@ -1,6 +1,2 @@
-User-agent: JikeSpider
-Disallow:/ 
-
 User-agent:*
-Disallow:/account/
-Disallow:/pay/
+Disallow:/admin/

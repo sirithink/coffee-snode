@@ -28,10 +28,10 @@ block content
                                 if item.del_status == '1'
                                     span.badge.badge-warning 已删
                             td.row
-                                a.btn.btn-success.span3(href="/blog/#{item.id}", target="_blank")
+                                a.btn.btn-success.span3(href="/blog/#{item.id}", target="_blank", style="width: 68px;")
                                     i.icon-zoom-in.icon-white
                                     |查看
-                                a.btn.btn-info.span3(href="/admin/blog/edit/#{item.id}")
+                                a.btn.btn-info.span3(href="/admin/blog/edit/#{item.id}", style="width: 68px;")
                                     i.icon-edit.icon-white
                                     |编辑
                     - })
