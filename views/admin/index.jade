@@ -21,16 +21,26 @@ block content
                     - blogs.forEach(function(item){
                         tr
                             td #{item.id}
-                            td #{item.title}
+                            td 
+                                - var title = item.title, reLen = 0; 
+                                - for (var i = 0, len = title.length; i < len; i++) {
+                                        - if(reLen > 30) {
+                                        -       title = title.substr(0, i) + '...'
+                                        -       break
+                                        - }      
+                                        - if (title.charCodeAt(i) < 27 || title.charCodeAt(i) > 126){
+                                        -       reLen += 2        
+                                        - } else {
+                                        -       reLen++ 
+                                        - }        
+                                - } 
+                                a(href="/blog/#{item.id}", title="#{title}") #{title}
                             td 
                                 if item.del_status == '0'
                                     span.badge.badge-success 正常
                                 if item.del_status == '1'
                                     span.badge.badge-warning 已删
-                            td.row
-                                a.btn.btn-success.span3(href="/blog/#{item.id}", target="_blank", style="width: 68px;")
-                                    i.icon-zoom-in.icon-white
-                                    |查看
+                            td
                                 a.btn.btn-info.span3(href="/admin/blog/edit/#{item.id}", style="width: 68px;")
                                     i.icon-edit.icon-white
                                     |编辑
