@@ -1,9 +1,16 @@
 #简介
 这是一个nodejs的博客
 
-采用 `Express.js 3.0` mvc框架`MySQL`数据库和`Jade`模版引擎
+采用 `Express.js 3.0` mvc框架`MySQL`数据库和`Jade`模版引擎，使用CoffeeScript编写!
 
-使用CoffeeScript编写，部署于Appfog!
+基于`appfog`云空间，详情请访问官网：
+```
+https://console.appfog.com/
+```
+演示地址
+```
+http://www.dreamlu.net/
+```
 
 #build and run
 将CoffeeScript编译成js
@@ -19,12 +26,12 @@ build.bat
 strat.bat
 ```
 
-请删除掉views/common/_layout.jade中的百度统计代码！
+请删除掉views/common/_layout.jade中的`百度统计`代码！
 
 # 代码清理
 使用`clear.bat`会在项目同级目录生成一个`temp`目录，
 
-`temp`中的代码用来上传到Appfog！
+`temp`中的代码用来上传到`Appfog`！
 ```
 clear.bat
 ```
