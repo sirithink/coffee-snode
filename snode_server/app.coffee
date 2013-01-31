@@ -1,6 +1,7 @@
 express = require 'express'
 expressValidator = require 'express-validator'
 logentries = require 'node-logentries'
+gzippo = require 'gzippo'
 config = require './config'
 routes = require './routes'
 socket = require './socket'
@@ -24,7 +25,8 @@ app.configure ->
     app.use express.cookieParser()
     app.use express.session secret: config.secret
     app.use app.router
-    app.use express.static path.join __dirname, '/../public'
+    # app.use express.static path.join __dirname, '/../public'
+    app.use gzippo.staticGzip __dirname + '/../public'
     
     app.use (error, req, res, next) ->
         res.render error, title: 'Sorry something bad happened!'

@@ -15,6 +15,7 @@
     "data2xml": "*",
     "node-logentries": "*",
     "cloudinary":"*",
+    "gzippo":"*",
     "socket.io": "*"
   }
 }
