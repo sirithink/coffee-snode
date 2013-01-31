@@ -36,14 +36,14 @@ exports.post = (req, res) ->
         req.session.admin = admin
         res.locals.admin = admin
         dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
-            log.log "debug", err or blogs
+            log.log "debug", err if err
             res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     else
         res.render 'admin/signin', title: 'Snode管理后台'
     
 exports.index = (req, res) ->
     dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
-        log.log "debug", err or blogs
+        log.log "debug", err if err
         res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
 exports.logout = (req, res) ->

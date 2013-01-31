@@ -18,10 +18,12 @@ exports.getAdd = function(req, res) {
 exports.postAdd = function(req, res) {
   var blog;
   blog = req.body.blog;
-  console.log(blog);
-  log.log("debug", blog);
+  console.log(blog.title);
+  log.log("debug", blog.title);
   return dao.save(blog, function(err, results) {
-    log.log("debug", err || results);
+    if (err) {
+      log.log("debug", err);
+    }
     return res.render('admin/blog-add', {
       title: 'snode写博'
     });
@@ -32,7 +34,9 @@ exports.getEdit = function(req, res) {
   return dao.findOne({
     id: req.params.id
   }, function(err, blog) {
-    log.log("debug", err || blog);
+    if (err) {
+      log.log("debug", err);
+    }
     return res.render('admin/blog-edit', {
       title: 'snode博客编辑',
       blog: blog
@@ -50,7 +54,9 @@ exports.postEdit = function(req, res) {
       only: ['id', 'title', 'del_status'],
       order: ['-id']
     }, function(err, blogs) {
-      log.log("debug", err || blogs);
+      if (err) {
+        log.log("debug", err);
+      }
       return res.render('admin/index', {
         title: 'Snode管理后台',
         blogs: blogs

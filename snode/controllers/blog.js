@@ -20,8 +20,12 @@ exports.get = function(req, res) {
       only: ['id', 'title'],
       order: ['-id']
     }, function(err, blogs) {
-      console.log(err || blogs);
-      log.log("debug", err || blogs);
+      if (err) {
+        console.log(err);
+      }
+      if (err) {
+        log.log("debug", err);
+      }
       if (typeof blog === 'undefined' || typeof blogs === 'undefined') {
         return res.render('error/404');
       } else {

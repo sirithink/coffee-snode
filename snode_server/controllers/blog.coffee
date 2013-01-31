@@ -8,8 +8,8 @@ log = logentries.logger config.logToken
 exports.get = (req, res) ->
     dao.findOne id:req.params.id, del_status:0, (err, blog) ->
         dao.all {del_status: 0}, only: ['id','title'], order: ['-id'], (err, blogs) ->
-            console.log err or blogs
-            log.log "debug", err or blogs
+            console.log err if err
+            log.log "debug", err if err
             if typeof blog == 'undefined' or typeof blogs == 'undefined'
                 res.render 'error/404'
             else    

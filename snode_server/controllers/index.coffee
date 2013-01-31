@@ -11,8 +11,8 @@ log = logentries.logger config.logToken
 # index
 exports.get = (req, res) ->
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
-        console.log err or blogs
-        log.log "debug", err or blogs
+        console.log err if err
+        log.log "debug", err if err
         # format date
         for blog in blogs
             for b of blog
@@ -31,8 +31,8 @@ exports.mailPost = (req, res) ->
     code = codecUtil.md5Hex email
     mailUtil.sendSignup user, code
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
-        console.log err or blogs
-        log.log "debug", err or blogs
+        console.log err if err
+        log.log "debug", err if err
         # format date
         for blog in blogs
             for b of blog

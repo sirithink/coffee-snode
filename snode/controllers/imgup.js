@@ -40,8 +40,8 @@ exports.editor = function(req, res) {
   tmp_path = req.files.imgFile.path;
   img_name = new Date().getTime();
   stream = cloudinary.uploader.upload_stream(function(result) {
-    console.log(result);
-    log.log("debug", result);
+    console.log(result.url);
+    log.log("debug", result.url);
     fs.unlink(tmp_path, function(err) {
       if (err) {
         console.log(err);

@@ -23,8 +23,12 @@ exports.get = function(req, res) {
     order: ['-id']
   }, function(err, blogs) {
     var b, blog, _i, _len;
-    console.log(err || blogs);
-    log.log("debug", err || blogs);
+    if (err) {
+      console.log(err);
+    }
+    if (err) {
+      log.log("debug", err);
+    }
     for (_i = 0, _len = blogs.length; _i < _len; _i++) {
       blog = blogs[_i];
       for (b in blog) {
@@ -62,8 +66,12 @@ exports.mailPost = function(req, res) {
     order: ['-id']
   }, function(err, blogs) {
     var b, blog, _i, _len;
-    console.log(err || blogs);
-    log.log("debug", err || blogs);
+    if (err) {
+      console.log(err);
+    }
+    if (err) {
+      log.log("debug", err);
+    }
     for (_i = 0, _len = blogs.length; _i < _len; _i++) {
       blog = blogs[_i];
       for (b in blog) {

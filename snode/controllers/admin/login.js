@@ -50,7 +50,9 @@ exports.post = function(req, res) {
       only: ['id', 'title', 'del_status'],
       order: ['-id']
     }, function(err, blogs) {
-      log.log("debug", err || blogs);
+      if (err) {
+        log.log("debug", err);
+      }
       return res.render('admin/index', {
         title: 'Snode管理后台',
         blogs: blogs
@@ -68,7 +70,9 @@ exports.index = function(req, res) {
     only: ['id', 'title', 'del_status'],
     order: ['-id']
   }, function(err, blogs) {
-    log.log("debug", err || blogs);
+    if (err) {
+      log.log("debug", err);
+    }
     return res.render('admin/index', {
       title: 'Snode管理后台',
       blogs: blogs

@@ -33,8 +33,12 @@ exports.get = function(req, res) {
     order: ['-id']
   }, function(err, blogs) {
     var key, rss_content, value;
-    console.log(err || blogs);
-    log.log("debug", err || blogs);
+    if (err) {
+      console.log(err);
+    }
+    if (err) {
+      log.log("debug", err);
+    }
     for (key in blogs) {
       value = blogs[key];
       rss_obj.channel.item.push({
