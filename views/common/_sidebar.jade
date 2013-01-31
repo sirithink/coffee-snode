@@ -1,10 +1,16 @@
 .tbox
-    script(charset="UTF-8")
-        var nId = "fbb30074540693f33c4c8ef64765c6cd79d6957e68d752c5",nWidth="auto",sColor="light",sText="填写您的邮件地址:" ;
-    script(src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js", charset="gb18030")
+    .rssbook.light(style="width:auto")
+        p.info 填写您的邮件地址:
+        .mailInput
+            form(action="http://list.qq.com/cgi-bin/qf_compose_send", target="_blank", method="post")
+                input(type="hidden", name="t", value="qf_booked_feedback")
+                input(type="hidden", name="id", value="fbb30074540693f33c4c8ef64765c6cd79d6957e68d752c5")
+                input#to.rsstxt(name="to", type="text", value="")
+                .rssbutton
+                    input(type="submit", value="订阅")
 .tbox
     .header
-         span.col_fade 近期文章
+        span.col_fade 近期文章
     .content
          ul.unstyled
             - blogs.forEach(function(item){
