@@ -26,7 +26,7 @@ app.configure ->
     app.use express.session secret: config.secret
     app.use app.router
     # app.use express.static path.join __dirname, '/../public'
-    app.use gzippo.staticGzip __dirname + '/../public'
+    app.use gzippo.staticGzip path.join __dirname, '/../public'
     
     app.use (error, req, res, next) ->
         res.render error, title: 'Sorry something bad happened!'
