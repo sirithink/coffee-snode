@@ -118,6 +118,8 @@
                 $('#audio_media').bind('error', function(event) {
                     // console.log("error");
                     // console.log(event);
+                    musicbox.shift();
+                    load();
                 });
                 $('#audio_media').bind('ended', function(event) {
                     // console.log("ended");
