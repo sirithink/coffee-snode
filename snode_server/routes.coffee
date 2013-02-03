@@ -3,6 +3,7 @@ upload = require './controllers/upload'
 imgup = require './controllers/imgup'
 blog = require './controllers/blog'
 rss = require './controllers/rss'
+fm = require './controllers/fm'
 ###
 signup = require './controllers/signup'
 login = require './controllers/login'
@@ -27,6 +28,10 @@ module.exports = (app) ->
     # app.all '*', index.auth
     # home page
     app.get '/', index.get
+    
+    # fm
+    app.get '/playlist', fm.list
+    app.get '/playmusic', fm.music
     
     # mail
     app.get '/mail', index.mailGet

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>music</title>
+        <meta name="description" content="" />
+        <meta name="author" content="春梦" />
+        <style>
+          body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, lengend, button, input, textarea, th, td {
+              margin: 0;
+              padding: 0;
+          }
+          body {
+              font-size: 12px;
+          }
+          input[type="range"] {
+            width: 120px;
+            height: 4px;
+          }
+        </style>
+        <link rev="stylesheet" rel="stylesheet" type="text/css" media="screen" href="css/player.css">
+        <script src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
+        <script src="audiojs/audio.min.js"></script>
+    </head>
+    <body>
+        <div class="m_player mini_version" id="divplayer" style="left: 0px;">
+          <div class="m_player_dock" id="divsongframe">
+              <div class="music_info" id="divsonginfo"></div>
+              <div class="bar_op">
+                  <!-- <strong title="上一首( [ )" class="prev_bt"><span>上一首</span></strong> -->
+                  <strong title="播放(P)" class="play_bt" id="btnplay"><span>播放</span></strong>
+                  <strong title="下一首( ] )" class="next_bt" ><span>下一首</span></strong>
+                  <p class="volume" title="音量调节">
+                    <span class="volume_icon" id="spanmute" title="点击设为静音(M)"></span>
+                    <input id="spanvolumebar" type="range"  name="points" min="0" max="100" step="1" />
+                  </p>
+              </div>
+          </div>
+          <button type="button" class="folded_bt" title="点击收起" id="btnfold">
+              <span>点击收起/展开</span>
+          </button>
+        </div>
+        <div style="display: none;">
+            <audio id="audio_media" height="0" width="0" autoplay="false" preload="auto"></audio>
+        </div>
+        <script charset="UTF-8">
+            $(function() {
+                audiojs.createAll();
+                var player = $('#audio_media')[0];
+                var proxy = 'playmusic?url=';
+                var musicbox = [];
+                
+                $.getJSON("/playlist", function(json){
+                    if(json.r === 0){
+                       topOne(json.song);
+                    }else{
+                        alert("歌曲加载失败！");
+                    }
+                });
+                
+                var topOne = function(song){
+                    musicbox = song;
+                    load();
+                };
+                
+                var load = function (){
+                    var data = musicbox[0]; 
+                    if(data){
+                        data.time = '';
+                        var temp = '<a href="#" target="contentFrame" class="album_pic" title="{albumtitle}"><img src="{picture}" alt="{albumtitle}"></a><div class="music_info_main"><p class="music_name" title="{title}">{title}</p><p class="singer_name" title="{artist}">{artist}</p><p class="play_date" id="ptime">{time}</p>';
+                        $('#divsonginfo').html(temp.replace(/{albumtitle}/g, data.albumtitle).replace(/{picture}/g, data.picture).replace(/{title}/g, data.title).replace(/{artist}/g, data.artist).replace(/{time}/g, data.time));
+                        player.src = proxy + data.url;
+                    }
+                };
+                
+                var $btnfold = $('#btnfold');
+                var $btnplay = $('#btnplay');
+
+                $btnfold.click(function(){
+                    var $divplayer = $("#divplayer");
+                    if ($divplayer.hasClass("m_player_folded")) {
+                      // $divplayer.css({"left": "0px", "-webkit-transition": "left 0.6s ease 0s"});
+                      $divplayer.animate({left: "0px"}, 600);
+                      $divplayer.removeClass("m_player_folded");
+                      $(this).attr("title", "点击收起");
+                    }else{
+                      $("#divplayframe").fadeOut("normal");
+                      // $divplayer.css({"left": "-501px", "-webkit-transition": "left 0.6s ease 0s"});
+                      $divplayer.animate({left: "-501px"}, 600);
+                      $divplayer.addClass("m_player_folded");
+                      $(this).attr("title", "点击展开");
+                    }
+                });
+
+                $('#audio_media').bind('loadstart', function(event) {
+                    // console.log("loadstart");
+                    // console.log(event);
+                });
+                $('#audio_media').bind('play', function(event) {
+                    // console.log("playing");
+                    // console.log(event);
+                });
+                $('#audio_media').bind('canplay', function(event) {
+                    // console.log("canplay");
+                    // console.log(event);
+                    // player.pause();
+                });
+                $('#audio_media').bind('playing', function(event) {
+                    $btnplay.removeClass("play_bt").addClass("pause_bt").attr("title", "暂停(P)");
+                });
+                $('#audio_media').bind('pause', function(event) {
+                    $btnplay.removeClass("pause_bt").addClass("play_bt").attr("title", "播放(P)");
+                });
+                $('#audio_media').bind('stalled', function(event) {
+                    // console.log("stalled");
+                    // console.log(event);
+                });
+                $('#audio_media').bind('error', function(event) {
+                    // console.log("error");
+                    // console.log(event);
+                });
+                $('#audio_media').bind('ended', function(event) {
+                    // console.log("ended");
+                    musicbox.shift();
+                    load();
+                });
+                $('#audio_media').bind('timeupdate', function(event) {
+                    // console.log(event.timeStamp);
+                    // console.log(event);
+                });
+                $('#audio_media').bind('progress', function(event) {
+                    // console.log("progress");
+                });
+                $('#audio_media').bind('loadedmetadata', function(event) {
+                    // console.log("loadedmetadata");
+                });
+                $('#audio_media').bind('loadeddata', function(event) {
+                    // console.log("loadeddata");
+                    // console.log(event);
+                });
+
+                $btnplay.click(function(){
+                    if($(this).hasClass("play_bt")){
+                      player.play();
+                      $btnplay.removeClass("play_bt").addClass("pause_bt").attr("title", "暂停(P)");
+                    }else{
+                      player.pause();
+                      $btnplay.removeClass("pause_bt").addClass("play_bt").attr("title", "播放(P)");
+                    }
+                });
+            
+                $("#spanvolumebar").change(function (){
+                    player.volume = $(this).val() / 100;
+                });
+                $("#spanmute").click(function (){
+                    if($(this).hasClass("volume_icon")){
+                        $(this).removeClass("volume_icon").addClass("volume_mute").attr("title", "点击设为静音(M)");
+                        player.volume = 0;
+                    }else{
+                        $(this).removeClass("volume_mute").addClass("volume_icon").attr("title", "点击开启声音(M)");
+                        player.volume = $('input[type="range"]').val() / 100;
+                    }
+                });
+                // 下一曲
+                $(".next_bt").click(function(){
+                    musicbox.shift();
+                    load();
+                });
+                
+                var timer = setInterval(getRes, 1000); 
+                
+                function getRes(){
+                    if(musicbox.length <= 1){
+                        $.getJSON("/playlist", function(json){
+                            if(json.r === 0){
+                               musicbox = musicbox.concat(json.song);
+                            }else{
+                                alert("歌曲加载失败！");
+                            }
+                        });
+                    }else{
+                       // console.log(musicbox.length);
+                    }
+                };
+            });
+        </script>
+    </body>
+</html>

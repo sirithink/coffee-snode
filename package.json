@@ -14,8 +14,9 @@
     "emailjs": "*",
     "data2xml": "*",
     "node-logentries": "*",
-    "cloudinary":"*",
-    "gzippo":"*",
+    "cloudinary": "*",
+    "gzippo": "*",
+    "needle": "*",
     "socket.io": "*"
   }
 }
