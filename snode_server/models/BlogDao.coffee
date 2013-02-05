@@ -15,8 +15,7 @@ Blog = FastLegS.Base.extend
 BlogTags = FastLegS.Base.extend
   tableName: 'blog_tags'
   primaryKey: 'id'
-  
-  
+   
 ###
 Blog create
 ###
@@ -40,15 +39,27 @@ Blog findById
 ###
 exports.findOne = (obj, callback) ->
   Blog.findOne obj, (err, results) ->
-    console.log results
-    callback err, results
+    callback err, reset results
 
 ###
 Blog all
 ###
 exports.all = (obj ,only, callback) ->
   Blog.find obj, only, (err, results) ->
-    console.log results
-    callback err, results
+    callback err, reset results
     
+# reset object 
+# format date
+reset = (object) ->
+  if object.constructor is Object
+    for key of object
+      object[key] = dateUtil.format object[key] if object[key] instanceof Date
+    return object
+  else if object.constructor is Array
+    for obj in object
+      for key of obj
+        obj[key] = dateUtil.format obj[key] if obj[key] instanceof Date
+    return object
+  else return object
+           
     

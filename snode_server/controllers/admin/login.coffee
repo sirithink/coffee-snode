@@ -1,6 +1,5 @@
 logentries = require 'node-logentries'
 codecUtil = require "../../util/codecUtil"
-dateUtil = require '../../util/dateUtil'
 dao = require '../../models/BlogDao'
 config = require '../../config'
 

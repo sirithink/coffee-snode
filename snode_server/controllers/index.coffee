@@ -1,5 +1,4 @@
 logentries = require 'node-logentries'
-dateUtil = require '../util/dateUtil'
 mailUtil = require '../util/mailUtil'
 codecUtil = require '../util/codecUtil'
 config = require '../config'
@@ -11,14 +10,9 @@ log = logentries.logger config.logToken
 
 # index
 exports.get = (req, res) ->
-    
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
         console.log err if err
         log.log "debug", err if err
-        # format date
-        for blog in blogs
-            for b of blog
-                blog[b] = dateUtil.format blog[b] if blog[b] instanceof Date
         res.render 'index', title: 'snode', blogs: blogs
 
 # mail
@@ -36,8 +30,4 @@ exports.mailPost = (req, res) ->
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
         console.log err if err
         log.log "debug", err if err
-        # format date
-        for blog in blogs
-            for b of blog
-                blog[b] = dateUtil.format blog[b] if blog[b] instanceof Date
         res.render 'index', title: 'snode', blogs: blogs
