@@ -40,6 +40,7 @@ Blog findById
 ###
 exports.findOne = (obj, callback) ->
   Blog.findOne obj, (err, results) ->
+    console.log results
     callback err, results
 
 ###
@@ -47,6 +48,7 @@ Blog all
 ###
 exports.all = (obj ,only, callback) ->
   Blog.find obj, only, (err, results) ->
+    console.log results
     callback err, results
     
     

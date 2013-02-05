@@ -8,8 +8,10 @@ config = require '../config'
 dao = require '../models/BlogDao'
 # log
 log = logentries.logger config.logToken
+
 # index
 exports.get = (req, res) ->
+    
     dao.all {del_status: 0}, only: ['id','title','update_time'], order: ['-id'], (err, blogs) ->
         console.log err if err
         log.log "debug", err if err
@@ -19,10 +21,11 @@ exports.get = (req, res) ->
                 blog[b] = dateUtil.format blog[b] if blog[b] instanceof Date
         res.render 'index', title: 'snode', blogs: blogs
 
+# mail
 exports.mailGet = (req, res) ->
     res.render 'mail', title: 'snode邮件发送'
 
-# 发送邮件
+# send mail
 exports.mailPost = (req, res) ->
     email = req.body.email 
     user = 

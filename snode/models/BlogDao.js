@@ -56,6 +56,7 @@ Blog findById
 
 exports.findOne = function(obj, callback) {
   return Blog.findOne(obj, function(err, results) {
+    console.log(results);
     return callback(err, results);
   });
 };
@@ -67,6 +68,7 @@ Blog all
 
 exports.all = function(obj, only, callback) {
   return Blog.find(obj, only, function(err, results) {
+    console.log(results);
     return callback(err, results);
   });
 };
