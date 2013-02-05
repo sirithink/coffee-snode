@@ -10,8 +10,8 @@ exports.getAdd = (req, res) ->
     
 exports.postAdd = (req, res) ->
     blog = req.body.blog
-    console.log blog.title
-    log.log "debug", blog.title
+    console.log "Add:\t#{blog.title}"
+    log.log "debug", "Add:\t#{blog.title}"
     dao.save blog, (results) ->
         res.render 'admin/blog-add', title: 'snode写博'
 
@@ -21,7 +21,7 @@ exports.getEdit = (req, res) ->
     
 exports.postEdit = (req, res) ->
     blog = req.body.blog
-    console.log blog
-    log.log "debug", blog
+    console.log "Updata:\t#{blog.title}"
+    log.log "debug", "Updata:\t#{blog.title}"
     dao.update blog, (results) ->
         res.redirect 'admin/index'

@@ -41,7 +41,11 @@ exports.save = function(obj, callback) {
     if (err) {
       log.log("debug", err);
     }
-    return callback(results);
+    if (results) {
+      return callback(reset(results));
+    } else {
+      return callback(null);
+    }
   });
 };
 
@@ -61,7 +65,11 @@ exports.update = function(obj, callback) {
     if (err) {
       log.log("debug", err);
     }
-    return callback(results);
+    if (results) {
+      return callback(reset(results));
+    } else {
+      return callback(null);
+    }
   });
 };
 
@@ -99,7 +107,11 @@ exports.all = function(obj, only, callback) {
     if (err) {
       log.log("debug", err);
     }
-    return callback(reset(results));
+    if (results) {
+      return callback(reset(results));
+    } else {
+      return callback(null);
+    }
   });
 };
 
@@ -113,7 +125,11 @@ exports.count = function(obj, callback) {
     if (err) {
       log.log("debug", err);
     }
-    return callback(results);
+    if (results) {
+      return callback(reset(results));
+    } else {
+      return callback(null);
+    }
   });
 };
 

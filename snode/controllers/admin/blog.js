@@ -18,8 +18,8 @@ exports.getAdd = function(req, res) {
 exports.postAdd = function(req, res) {
   var blog;
   blog = req.body.blog;
-  console.log(blog.title);
-  log.log("debug", blog.title);
+  console.log("Add\t" + blog.title);
+  log.log("debug", "Add\t" + blog.title);
   return dao.save(blog, function(results) {
     return res.render('admin/blog-add', {
       title: 'snode写博'
@@ -41,8 +41,8 @@ exports.getEdit = function(req, res) {
 exports.postEdit = function(req, res) {
   var blog;
   blog = req.body.blog;
-  console.log(blog);
-  log.log("debug", blog);
+  console.log("Updata\t" + blog.title);
+  log.log("debug", "Updata\t" + blog.title);
   return dao.update(blog, function(results) {
     return res.redirect('admin/index');
   });

@@ -29,8 +29,8 @@ exports.post = (req, res) ->
     # url:https://github.com/ChunMengLu/node_mysql_test
 
     admin.password = codecUtil.md5Hex admin.password
-    console.log admin.email
-    log.log "debug", admin.email
+    console.log "Admin:\t#{admin.email}"
+    log.log "debug", "Admin:\t#{admin.email}"
     if admin_name is admin.email and admin_pwd is admin.password
         req.session.admin = admin
         res.locals.admin = admin
