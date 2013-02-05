@@ -43,10 +43,6 @@ module.exports = function(app) {
   app.get('/mail', index.mailGet);
   app.post('/mail', index.mailPost);
   app.get('/rss', rss.get);
-  /*
-      editor图片上传
-  */
-
   app.post('/upload/editor', imgup.validator, imgup.editor);
   /*
       blog
@@ -61,7 +57,7 @@ module.exports = function(app) {
   app.get('/admin/logout', adminLogin.logout);
   app.post('/admin/session', adminLogin.post);
   app.all('/admin/*', adminLogin.auth);
-  app.all('/admin/index', adminLogin.index);
+  app.get('/admin/index', adminLogin.index);
   app.get('/admin/blog/add', adminBlog.getAdd);
   app.post('/admin/blog/add', adminBlog.postAdd);
   app.get('/admin/blog/edit/:id', adminBlog.getEdit);
