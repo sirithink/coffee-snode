@@ -39,8 +39,8 @@ exports.post = function(req, res) {
   admin = req.body.admin;
   remember = req.body.remember;
   admin.password = codecUtil.md5Hex(admin.password);
-  console.log(admin.email);
-  log.log("debug", admin.email);
+  console.log("Admin:\t" + admin.email);
+  log.log("debug", "Admin:\t" + admin.email);
   if (admin_name === admin.email && admin_pwd === admin.password) {
     req.session.admin = admin;
     res.locals.admin = admin;
