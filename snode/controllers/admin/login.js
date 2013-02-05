@@ -39,23 +39,12 @@ exports.post = function(req, res) {
   admin = req.body.admin;
   remember = req.body.remember;
   admin.password = codecUtil.md5Hex(admin.password);
-  console.log(admin);
-  log.log("debug", admin);
+  console.log(admin.email);
+  log.log("debug", admin.email);
   if (admin_name === admin.email && admin_pwd === admin.password) {
     req.session.admin = admin;
     res.locals.admin = admin;
-    return dao.all({}, {
-      only: ['id', 'title', 'del_status'],
-      order: ['-id']
-    }, function(err, blogs) {
-      if (err) {
-        log.log("debug", err);
-      }
-      return res.render('admin/index', {
-        title: 'Snode管理后台',
-        blogs: blogs
-      });
-    });
+    return res.redirect('admin/index');
   } else {
     return res.render('admin/signin', {
       title: 'Snode管理后台'
@@ -67,10 +56,7 @@ exports.index = function(req, res) {
   return dao.all({}, {
     only: ['id', 'title', 'del_status'],
     order: ['-id']
-  }, function(err, blogs) {
-    if (err) {
-      log.log("debug", err);
-    }
+  }, function(blogs) {
     return res.render('admin/index', {
       title: 'Snode管理后台',
       blogs: blogs
