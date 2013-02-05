@@ -78,7 +78,11 @@ exports.findOne = function(obj, callback) {
     if (err) {
       log.log("debug", err);
     }
-    return callback(reset(results));
+    if (results) {
+      return callback(reset(results));
+    } else {
+      return callback(null);
+    }
   });
 };
 
