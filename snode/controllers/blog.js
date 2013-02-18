@@ -13,27 +13,22 @@ exports.get = function(req, res) {
   return dao.findOne({
     id: req.params.id,
     del_status: 0
-  }, function(err, blog) {
+  }, function(blog) {
     return dao.all({
       del_status: 0
     }, {
       only: ['id', 'title'],
+      limit: 10,
       order: ['-id']
-    }, function(err, blogs) {
-      if (err) {
-        console.log(err);
-      }
-      if (err) {
-        log.log("debug", err);
-      }
-      if (typeof blog === 'undefined' || typeof blogs === 'undefined') {
-        return res.render('error/404');
-      } else {
+    }, function(blogs) {
+      if ((blog != null) && (blogs != null)) {
         return res.render('blog', {
           title: blog.title,
           blog: blog,
-          blogs: blogs
+          spots: blogs
         });
+      } else {
+        return res.render('error/404');
       }
     });
   });

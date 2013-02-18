@@ -10,22 +10,18 @@ exports.getAdd = (req, res) ->
     
 exports.postAdd = (req, res) ->
     blog = req.body.blog
-    console.log blog.title
-    log.log "debug", blog.title
-    dao.save blog, (err, results) ->
-        log.log "debug", err if err
+    console.log "Add:\t#{blog.title}"
+    log.log "debug", "Add:\t#{blog.title}"
+    dao.save blog, (results) ->
         res.render 'admin/blog-add', title: 'snode写博'
 
 exports.getEdit = (req, res) ->
-    dao.findOne id:req.params.id, (err, blog) ->
-        log.log "debug", err if err
+    dao.findOne id:req.params.id, (blog) ->
         res.render 'admin/blog-edit', title: 'snode博客编辑', blog: blog
     
 exports.postEdit = (req, res) ->
     blog = req.body.blog
-    console.log blog
-    log.log "debug", blog
-    dao.update blog, (err, results) ->
-        dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
-            log.log "debug", err if err
-            res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
+    console.log "Updata:\t#{blog.title}"
+    log.log "debug", "Updata:\t#{blog.title}"
+    dao.update blog, (results) ->
+        res.redirect 'admin/index'

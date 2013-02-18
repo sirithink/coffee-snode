@@ -19,14 +19,12 @@ exports.aesEncrypt = function(str, secret) {
   var cipher, enc;
   cipher = crypto.createCipher('aes192', secret);
   enc = cipher.update(str, 'utf8', 'hex');
-  enc += cipher.final('hex');
-  return enc;
+  return enc += cipher.final('hex');
 };
 
 exports.aesDecrypt = function(str, secret) {
   var dec, decipher;
   decipher = crypto.createDecipher('aes192', secret);
   dec = decipher.update(str, 'hex', 'utf8');
-  dec += decipher.final('utf8');
-  return dec;
+  return dec += decipher.final('utf8');
 };

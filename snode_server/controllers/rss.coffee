@@ -16,9 +16,7 @@ exports.get = (req, res) ->
         description: config.rss.description,
         item: []
     
-    dao.all {del_status: 0}, only: ['id','title', 'content','update_time'], limit: config.max_items, order: ['-id'], (err, blogs) ->
-        console.log err if err
-        log.log "debug", err if err
+    dao.all {del_status: 0}, only: ['id','title', 'content','update_time'], limit: config.max_items, order: ['-id'], (blogs) ->
         for key, value of blogs
             rss_obj.channel.item.push
                 title: value.title,

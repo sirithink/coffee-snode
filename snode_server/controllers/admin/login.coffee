@@ -1,6 +1,5 @@
 logentries = require 'node-logentries'
 codecUtil = require "../../util/codecUtil"
-dateUtil = require '../../util/dateUtil'
 dao = require '../../models/BlogDao'
 config = require '../../config'
 
@@ -30,20 +29,17 @@ exports.post = (req, res) ->
     # url:https://github.com/ChunMengLu/node_mysql_test
 
     admin.password = codecUtil.md5Hex admin.password
-    console.log admin
-    log.log "debug", admin
+    console.log "Admin:\t#{admin.email}"
+    log.log "debug", "Admin:\t#{admin.email}"
     if admin_name is admin.email and admin_pwd is admin.password
         req.session.admin = admin
         res.locals.admin = admin
-        dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
-            log.log "debug", err if err
-            res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
+        res.redirect 'admin/index'
     else
         res.render 'admin/signin', title: 'Snode管理后台'
     
 exports.index = (req, res) ->
-    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (err, blogs) ->
-        log.log "debug", err if err
+    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (blogs) ->
         res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
 exports.logout = (req, res) ->

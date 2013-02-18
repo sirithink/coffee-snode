@@ -31,14 +31,8 @@ exports.get = function(req, res) {
     only: ['id', 'title', 'content', 'update_time'],
     limit: config.max_items,
     order: ['-id']
-  }, function(err, blogs) {
+  }, function(blogs) {
     var key, rss_content, value;
-    if (err) {
-      console.log(err);
-    }
-    if (err) {
-      log.log("debug", err);
-    }
     for (key in blogs) {
       value = blogs[key];
       rss_obj.channel.item.push({
