@@ -7,10 +7,7 @@
 ```
 https://console.appfog.com/
 ```
-演示地址
-```
-http://www.dreamlu.net/
-```
+演示地址[dreamlu.net](http://www.dreamlu.net/)
 
 #build and run
 将CoffeeScript编译成js
