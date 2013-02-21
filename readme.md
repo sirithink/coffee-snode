@@ -12,7 +12,11 @@ https://console.appfog.com/
 演示地址[dreamlu.net](http://www.dreamlu.net/)
 
 #build and run
-将CoffeeScript编译成js
+将CoffeeScript编译成js，首先需要安装coffee 
+
+```
+npm install coffee-script
+```
 
 打开命令行build: 
 ```
