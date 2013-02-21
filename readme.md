@@ -34,7 +34,7 @@ strat.bat
 # 代码清理
 使用`clear.bat`会在项目同级目录生成一个`temp`目录，
 
-`temp`中的代码用来上传到`Appfog`！
+`temp`中的代码用来上传到`Appfog`
 ```
 clear.bat
 ```
