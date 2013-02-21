@@ -15,7 +15,7 @@ https://console.appfog.com/
 将CoffeeScript编译成js，首先需要安装coffee 
 
 ```
-npm install coffee-script
+npm install coffee-script -g
 ```
 
 打开命令行build: 
