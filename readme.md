@@ -1,3 +1,5 @@
+#coffee-snode [![依赖模块状态](http://david-dm.org/ChunMengLu/coffee-snode.png)](http://david-dm.org/ChunMengLu/coffee-snode)
+
 #简介
 这是一个nodejs的博客
 
