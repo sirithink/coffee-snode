@@ -3,3 +3,5 @@ node_js:
   - 0.8
 services:
   - mysql
+before_script:
+  - cake build
