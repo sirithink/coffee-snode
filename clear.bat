@@ -1,3 +1,4 @@
+rm -rf ../temp
 cp -r ../coffee-snode ../temp
 cd ../temp
 rm -rf snode_server
