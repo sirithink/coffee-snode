@@ -5,4 +5,4 @@ services:
   - mysql
 before_script:
   - npm install coffee-script
-  - cake build
+script: ./clear.bat
