@@ -119,17 +119,9 @@ exports.count = function(obj, callback) {
   return Blog.find(obj, {
     count: true
   }, function(err, results) {
-    if (err) {
-      console.log(err);
-    }
-    if (err) {
-      log.log("debug", err);
-    }
-    if (results) {
-      return callback(reset(results));
-    } else {
-      return callback(null);
-    }
+    console.log(err || results);
+    log.log("debug", err || results);
+    return callback(results.count);
   });
 };
 

@@ -32,9 +32,9 @@ exports.get = function(req, res) {
   }
   return dao.count({
     del_status: 0
-  }, function(results) {
+  }, function(count) {
     var pagebean;
-    pagebean = new pageBean(parseInt(page), results.count);
+    pagebean = new pageBean(parseInt(page), count);
     return dao.all({
       del_status: 0
     }, {
