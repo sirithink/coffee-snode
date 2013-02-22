@@ -30,7 +30,7 @@ exports.get = function(req, res) {
   } else if (isNaN(page)) {
     res.render('error/404');
   }
-  return dao.count({
+  return dao.counts({
     del_status: 0
   }, function(count) {
     var pagebean;

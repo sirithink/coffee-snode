@@ -72,7 +72,7 @@ exports.all = (obj ,only, callback) ->
       callback null
     
 # count #{del_status: 0}
-exports.count = (obj, callback) ->
+exports.counts = (obj, callback) ->
   Blog.find obj, {count: true}, (err, results) ->
     console.log err or results
     log.log "debug", err or results

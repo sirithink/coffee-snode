@@ -115,7 +115,7 @@ exports.all = function(obj, only, callback) {
   });
 };
 
-exports.count = function(obj, callback) {
+exports.counts = function(obj, callback) {
   return Blog.find(obj, {
     count: true
   }, function(err, results) {

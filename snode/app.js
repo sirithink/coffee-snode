@@ -41,9 +41,7 @@ app.configure(function() {
   app.use(app.router);
   app.use(gzippo.staticGzip(path.join(__dirname, '/../public')));
   return app.use(function(error, req, res, next) {
-    return res.render(error, {
-      title: 'Sorry something bad happened!'
-    });
+    return res.render('error/404');
   });
 });
 
