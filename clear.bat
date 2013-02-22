@@ -1,6 +1,6 @@
 echo Please wait a moment...
-cake build
 rm -rf ../temp
+cake build
 cp -r ../coffee-snode ../temp
 cd ../temp
 rm -rf snode_server

@@ -29,7 +29,7 @@ app.configure ->
     app.use gzippo.staticGzip path.join __dirname, '/../public'
     
     app.use (error, req, res, next) ->
-        res.render 'error/404'
+        res.render 'error/500'
 
 # 开发环境
 app.configure 'development', ->
