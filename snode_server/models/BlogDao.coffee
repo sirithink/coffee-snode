@@ -66,7 +66,7 @@ exports.all = (obj ,only, callback) ->
   Blog.find obj, only, (err, results) ->
     console.log err if err
     log.log "debug", err if err
-    if results
+    if results?
       callback reset results
     else
       callback null

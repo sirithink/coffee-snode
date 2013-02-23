@@ -107,7 +107,7 @@ exports.all = function(obj, only, callback) {
     if (err) {
       log.log("debug", err);
     }
-    if (results) {
+    if (results != null) {
       return callback(reset(results));
     } else {
       return callback(null);

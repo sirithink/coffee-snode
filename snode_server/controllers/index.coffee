@@ -22,7 +22,7 @@ exports.get = (req, res) ->
         page = 1
     else if isNaN page
         res.render 'error/404'
-    dao.counts {del_status: 0}, (count) ->
+    dao.counts del_status: 0, (count) ->
         pagebean = new pageBean parseInt(page), count
         dao.all {del_status: 0}, only: ['id','title','update_time'], offset: pagebean.offset, limit: pagebean.limit, order: ['-id'], (blogs) ->
             dao.all {del_status: 0}, only: ['id','title'], limit: 10, order: ['-id'], (spots) ->
