@@ -29,7 +29,7 @@ exports.save = (obj, callback) ->
   Blog.create obj, (err, results) ->
     console.log err if err
     log.log "debug", err if err
-    if results
+    if results?
       callback reset results
     else
       callback null
@@ -42,7 +42,7 @@ exports.update = (obj, callback) ->
   Blog.update {id: obj.id}, obj, (err, results) ->
     console.log err if err
     log.log "debug", err if err
-    if results
+    if results?
       callback reset results
     else
       callback null 
@@ -54,7 +54,7 @@ exports.findOne = (obj, callback) ->
   Blog.findOne obj, (err, results) ->
     console.log err if err
     log.log "debug", err if err
-    if results
+    if results?
       callback reset results
     else
       callback null
