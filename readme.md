@@ -1,4 +1,4 @@
-#coffee-snode [![Build Status](https://travis-ci.org/ChunMengLu/coffee-snode.png?branch=master)](https://travis-ci.org/ChunMengLu/coffee-snode) [![依赖模块状态](http://david-dm.org/ChunMengLu/coffee-snode.png)](http://david-dm.org/ChunMengLu/coffee-snode)
+#coffee-snode [![Build Status](https://travis-ci.org/ChunMengLu/coffee-snode.png?branch=master)](https://travis-ci.org/ChunMengLu/coffee-snode) [![依赖模块状态](https://david-dm.org/ChunMengLu/coffee-snode.png)](http://david-dm.org/ChunMengLu/coffee-snode)
 
 #简介
 这是一个nodejs的博客
