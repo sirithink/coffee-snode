@@ -15,11 +15,12 @@ module.exports = (app) ->
     # 配置session 页面中使用 user 获取
     # app.all '*', index.auth
     # 对域名的处理
+    ###
     app.get '*', (req, res, next) ->
-        if (req.subdomains).length is 0
-            
+        if (req.subdomains).length is 0     
             req.redirect "#{req.protocol}://www.#{req.originalUrl}" 
-
+    ###
+    
     # home page
     app.get '/', index.get
     
