@@ -91,5 +91,5 @@ reset = (object) ->
         obj[key] = dateUtil.format obj[key] if obj[key] instanceof Date
     return object
   else return object 
-           
-    
+  
+  
