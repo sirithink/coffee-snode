@@ -37,9 +37,7 @@ app.configure 'development', ->
 
 # 现网
 app.configure 'production', ->
-    app.use express.static static_dir, {
-        maxAge : config.maxAge
-    }
+    app.use gzippo.staticGzip path.join(__dirname, '/../public'), maxAge : config.maxAge
     app.use express.errorHandler()
     app.set 'view cache', true
 

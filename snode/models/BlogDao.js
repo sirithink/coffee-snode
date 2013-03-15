@@ -31,6 +31,9 @@ Blog create
 
 
 exports.save = function(obj, callback) {
+  obj.user_id = 1;
+  obj.create_time = dateUtil.time();
+  obj.update_time = dateUtil.time();
   return Blog.create(obj, function(err, results) {
     if (err) {
       console.log(err);
