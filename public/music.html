@@ -19,8 +19,7 @@
           }
         </style>
         <link rev="stylesheet" rel="stylesheet" type="text/css" media="screen" href="css/player.css">
-        <script src="js/jquery-1.9.0.min.js" charset="UTF-8"></script>
-        <script src="audiojs/audio.min.js"></script>
+        <script src="js/jquery.js" charset="UTF-8"></script>
     </head>
     <body>
         <div class="m_player mini_version" id="divplayer" style="left: 0px;">
@@ -45,7 +44,6 @@
         </div>
         <script charset="UTF-8">
             $(function() {
-                audiojs.createAll();
                 var player = $('#audio_media')[0];
                 var proxy = 'playmusic?url=';
                 var musicbox = [];
