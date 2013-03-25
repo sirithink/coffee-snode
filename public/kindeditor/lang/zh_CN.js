@@ -48,7 +48,11 @@ KindEditor.lang({
 	emoticons : '插入表情',
 	link : '超级链接',
 	unlink : '取消超级链接',
+<<<<<<< HEAD
 	fullscreen : '全屏显示',
+=======
+	fullscreen : '全屏显示(Esc)',
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	about : '关于',
 	print : '打印(Ctrl+P)',
 	filemanager : '文件空间',
@@ -111,7 +115,10 @@ KindEditor.lang({
 	uploadError : '上传错误',
 	'plainpaste.comment' : '请使用快捷键(Ctrl+V)把内容粘贴到下面的方框里。',
 	'wordpaste.comment' : '请使用快捷键(Ctrl+V)把内容粘贴到下面的方框里。',
+<<<<<<< HEAD
 	'code.pleaseInput' : '请输入程序代码。',
+=======
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	'link.url' : 'URL',
 	'link.linkType' : '打开类型',
 	'link.newWindow' : '新窗口',

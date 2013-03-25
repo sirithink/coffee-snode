@@ -10,7 +10,10 @@
 KindEditor.plugin('image', function(K) {
 	var self = this, name = 'image',
 		allowImageUpload = K.undef(self.allowImageUpload, true),
+<<<<<<< HEAD
 		allowImageRemote = K.undef(self.allowImageRemote, true),
+=======
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 		formatUploadUrl = K.undef(self.formatUploadUrl, true),
 		allowFileManager = K.undef(self.allowFileManager, false),
 		uploadJson = K.undef(self.uploadJson, self.basePath + 'php/upload_json.php'),
@@ -292,7 +295,11 @@ KindEditor.plugin('image', function(K) {
 				imageHeight : img ? img.height() : '',
 				imageTitle : img ? img.attr('title') : '',
 				imageAlign : img ? img.attr('align') : '',
+<<<<<<< HEAD
 				showRemote : allowImageRemote,
+=======
+				showRemote : true,
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 				showLocal : allowImageUpload,
 				tabIndex: img ? 0 : imageTabIndex,
 				clickFn : function(url, title, width, height, border, align) {

@@ -50,7 +50,7 @@ app.configure('development', function() {
 });
 
 app.configure('production', function() {
-  app.use(express["static"](static_dir, {
+  app.use(gzippo.staticGzip(path.join(__dirname, '/../public'), {
     maxAge: config.maxAge
   }));
   app.use(express.errorHandler());

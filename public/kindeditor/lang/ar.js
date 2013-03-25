@@ -49,7 +49,11 @@ KindEditor.lang({
 	emoticons : 'إدراج وجه ضاحك',
 	link : 'رابط',
 	unlink : 'إزالة الرابط',
+<<<<<<< HEAD
 	fullscreen : 'محرر ملئ الشاشة',
+=======
+	fullscreen : 'محرر ملئ الشاشة(Esc)',
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	about : 'حول',
 	print : 'طباعة',
 	filemanager : 'مدير الملفات',
@@ -110,7 +114,10 @@ KindEditor.lang({
 	uploadError : 'Upload Error',
 	'plainpaste.comment' : 'إستخدم إختصار لوحة المفاتيح (Ctrl+V) للصق داخل النافذة.',
 	'wordpaste.comment' : 'إستخدم إختصار لوحة المفاتيح (Ctrl+V) للصق داخل النافذة.',
+<<<<<<< HEAD
 	'code.pleaseInput' : 'Please input code.',
+=======
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	'link.url' : 'الرابط',
 	'link.linkType' : 'الهدف',
 	'link.newWindow' : 'نافذة جديدة',

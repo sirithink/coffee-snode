@@ -48,7 +48,11 @@ KindEditor.lang({
 	emoticons : 'Insert emoticon',
 	link : 'Link',
 	unlink : 'Unlink',
+<<<<<<< HEAD
 	fullscreen : 'Toggle fullscreen mode',
+=======
+	fullscreen : 'Toggle fullscreen mode(Esc)',
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	about : 'About',
 	print : 'Print',
 	filemanager : 'File Manager',
@@ -109,7 +113,10 @@ KindEditor.lang({
 	uploadError : 'Upload Error',
 	'plainpaste.comment' : 'Use keyboard shortcut(Ctrl+V) to paste the text into the window.',
 	'wordpaste.comment' : 'Use keyboard shortcut(Ctrl+V) to paste the text into the window.',
+<<<<<<< HEAD
 	'code.pleaseInput' : 'Please input code.',
+=======
+>>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	'link.url' : 'URL',
 	'link.linkType' : 'Target',
 	'link.newWindow' : 'New window',
