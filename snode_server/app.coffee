@@ -1,12 +1,11 @@
 express = require 'express'
-expressValidator = require 'express-validator'
 logentries = require 'node-logentries'
 gzippo = require 'gzippo'
 config = require './config'
 routes = require './routes'
-socket = require './socket'
 http = require 'http'
 path = require 'path'
+{dbCache} = require './dao/cache'
 
 app = express()
 # node-logentries api https://logentries.com/doc/appfog/
@@ -20,7 +19,6 @@ app.configure ->
     app.use express.favicon __dirname + '/../public/favicon.ico'
     app.use express.logger 'dev'
     app.use express.bodyParser uploadDir: __dirname + '/../public/temp'
-    app.use expressValidator
     app.use express.methodOverride()
     app.use express.cookieParser()
     app.use express.session secret: config.secret
@@ -43,9 +41,9 @@ app.configure 'production', ->
 
 # routes
 routes app
+# init db cache
+dbCache.init()
 
 server = http.createServer(app).listen app.get('port'), ->
     console.log "listening on port " + app.get 'port'
     log.info "listening on port " + app.get 'port'
-# socket.io
-socket server

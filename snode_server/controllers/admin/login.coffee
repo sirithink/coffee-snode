@@ -1,6 +1,6 @@
 logentries = require 'node-logentries'
 codecUtil = require "../../util/codecUtil"
-dao = require '../../models/BlogDao'
+{dbCache} = require '../../dao/cache'
 config = require '../../config'
 
 # log
@@ -25,9 +25,8 @@ exports.auth = (req, res, next) ->
 exports.post = (req, res) ->
     admin = req.body.admin
     remember = req.body.remember
-    # remember暂时没去做 可以去参看 snode-test
+    # remember没去做 可以去参看 snode-test
     # url:https://github.com/ChunMengLu/node_mysql_test
-
     admin.password = codecUtil.md5Hex admin.password
     console.log "Admin:\t#{admin.email}"
     log.log "debug", "Admin:\t#{admin.email}"
@@ -39,8 +38,8 @@ exports.post = (req, res) ->
         res.render 'admin/signin', title: 'Snode管理后台'
     
 exports.index = (req, res) ->
-    dao.all {}, only: ['id','title', 'del_status'], order: ['-id'], (blogs) ->
-        res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
+    blogs = dbCache.get 'blogs'
+    res.render 'admin/index', title: 'Snode管理后台', blogs: blogs
     
 exports.logout = (req, res) ->
     log.info("Admin logout")

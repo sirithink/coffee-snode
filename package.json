@@ -1,22 +1,21 @@
 {
-  "name": "snode-coffee",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app"
-  },
-  "dependencies": {
-    "express": "*",
-    "express-validator": "*",
-    "jade": "*",
-    "mysql": "*",
-    "FastLegS": "*",
-    "emailjs": "*",
-    "data2xml": "*",
-    "node-logentries": "*",
-    "cloudinary": "*",
-    "gzippo": "*",
-    "needle": "*",
-    "socket.io": "*"
-  }
+    "name": "snode-coffee",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node app"
+    },
+    "dependencies": {
+        "express": "*",
+        "jade": "*",
+        "mysql": "*",
+        "memory-cache": "*",
+        "generic-pool": "*",
+        "emailjs": "*",
+        "data2xml": "*",
+        "node-logentries": "*",
+        "cloudinary": "*",
+        "gzippo": "*",
+        "needle": "*"
+    }
 }

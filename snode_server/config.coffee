@@ -4,7 +4,7 @@ cloudServices = process.env.VCAP_SERVICES
 # 端口
 exports.port = cloudPort || 3000
 # url供socket.io使用
-exports.domain = if cloudPort then 'http://snode.hp.af.cm' else 'http://localhost:3000'
+exports.domain = if cloudPort then 'http://dreamlu.net' else 'http://localhost:3000'
 # 数据库url
 if cloudServices
     env = JSON.parse process.env.VCAP_SERVICES
@@ -30,7 +30,7 @@ exports.email =
 # rss 配置
 exports.rss =
     title:        'Snode：Node.js博客'
-    link:         'http://snode.hp.af.cm/'
+    link:         'http://dreamlu.net/'
     language:     'zh-cn'
     description:  'Snode：Node.js博客'
     author:       'admin'
