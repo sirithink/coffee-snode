@@ -33,4 +33,4 @@ exports.get = (req, res) ->
 
 exports.json = (req, res) ->
   blogs = dbCache.get 'blogs'
-  res.json blogs
+  res.jsonp blogs

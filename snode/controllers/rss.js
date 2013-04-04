@@ -47,5 +47,5 @@ exports.json = function(req, res) {
   var blogs;
 
   blogs = dbCache.get('blogs');
-  return res.json(blogs);
+  return res.jsonp(blogs);
 };
