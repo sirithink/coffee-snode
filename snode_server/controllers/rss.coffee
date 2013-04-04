@@ -10,12 +10,12 @@ exports.get = (req, res) ->
   rss_obj =
     _attr:
       version: '2.0'
-      channel:
-        title: config.rss.title,
-        link: config.rss.link,
-        language: config.rss.language,
-        description: config.rss.description,
-        item: []
+    channel:
+      title: config.rss.title,
+      link: config.rss.link,
+      language: config.rss.language,
+      description: config.rss.description,
+      item: []
 
   blogs = dbCache.get 'blogs'
   for key, value of blogs
@@ -25,7 +25,7 @@ exports.get = (req, res) ->
       guid: config.rss.link + 'blog/' + value.id,
       description: value.content
       author: config.rss.author
-      pubDate: value.update_time.toUTCString()
+      pubDate: value.update_time
 
   rss_content = data2xml 'rss', rss_obj
   res.contentType 'application/xml'
