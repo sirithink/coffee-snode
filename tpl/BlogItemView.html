@@ -1,0 +1,20 @@
+<div class="page-header">
+    <h2><%= blog.title %></h2>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <%= blog.content %>
+    </div>
+</div>
+<div data-thread-key="<%= blog.id %>" data-title="<%= blog.title %>" data-category="snode" data-author-key="<%= blog.user_id %>" class="ds-thread" id="ds-thread"></div>
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"snode"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>

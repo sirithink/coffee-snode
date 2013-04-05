@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h2>文章列表 </h2>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <ul class="media-list">
+            <% blogs.forEach(function(blog){ %>
+                <li class="media">
+                    <h4 class="media-heading">
+                        <a href="#blog/<%= blog.id  %>"><%= blog.title%></a>
+                    </h4>
+                    <div class="media">
+                        <%= blog.update_time %>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
