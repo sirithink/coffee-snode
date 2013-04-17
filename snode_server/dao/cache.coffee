@@ -22,7 +22,6 @@ exports.dbCache = class dbCache
       for blog in blogs
         blog.content = htmlFilter.clean blog.content
         cache.put blog.id, blog
-        console.log blog
     db.query sqlBlogs, (error, data) ->
       blogs = _this.resetObj(data)
       for blog in blogs

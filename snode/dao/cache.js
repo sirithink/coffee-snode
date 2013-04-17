@@ -38,8 +38,7 @@ exports.dbCache = dbCache = (function() {
       for (_i = 0, _len = blogs.length; _i < _len; _i++) {
         blog = blogs[_i];
         blog.content = htmlFilter.clean(blog.content);
-        cache.put(blog.id, blog);
-        _results.push(console.log(blog));
+        _results.push(cache.put(blog.id, blog));
       }
       return _results;
     });
@@ -51,8 +50,7 @@ exports.dbCache = dbCache = (function() {
         blog = blogs[_i];
         blog.content = htmlFilter.clean(blog.content);
       }
-      cache.put('blogsclean', blogs);
-      return console.log(blogs);
+      return cache.put('blogsclean', blogs);
     });
     return db.query(sqlSpots, function(error, data) {
       return cache.put('spots', data);
