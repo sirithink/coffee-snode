@@ -4,4 +4,4 @@
   *
 ###
 exports.clean = (html)->
-  html.replace(/&nbsp;|\t|\n|\r/g, '').replace(/<[^>]+>+/g, '').replace(/\ {2,}/g, ' ')
+  html.replace(/&nbsp;|\t|\n|\r/g, '').replace(/<[^>]+>/g, '').replace(/\ {2,}/g, ' ')
