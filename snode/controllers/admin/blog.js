@@ -21,6 +21,9 @@ exports.postAdd = function(req, res) {
   var blog;
 
   blog = req.body.blog;
+  blog.create_time = new Date();
+  blog.update_time = new Date();
+  blog.user_id = new Date();
   console.log("Add:\t" + blog.title);
   log.log("debug", "Add:\t" + blog.title);
   return db.insert('blog', blog, function(error, data) {
@@ -45,6 +48,7 @@ exports.postEdit = function(req, res) {
   var blog;
 
   blog = req.body.blog;
+  blog.update_time = new Date();
   console.log("Updata:\t" + blog.title);
   log.log("debug", "Updata:\t" + blog.title);
   return db.update('blog', blog, {

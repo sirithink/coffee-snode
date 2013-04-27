@@ -47,14 +47,11 @@ KindEditor.plugin('code', function(K) {
 							code = textarea.val(),
 							cls = type === '' ? '' :  ' lang-' + type,
 							html = '<pre class="prettyprint' + cls + '">\n' + K.escape(code) + '</pre> ';
-<<<<<<< HEAD
 						if (K.trim(code) === '') {
 							alert(lang.pleaseInput);
 							textarea[0].focus();
 							return;
 						}
-=======
->>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 						self.insertHtml(html).hideDialog().focus();
 					}
 				}

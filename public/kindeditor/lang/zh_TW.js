@@ -110,10 +110,7 @@ KindEditor.lang({
 	uploadError : '上傳錯誤',
 	'plainpaste.comment' : '請使用快捷鍵(Ctrl+V)把內容貼到下方區域裡。',
 	'wordpaste.comment' : '請使用快捷鍵(Ctrl+V)把內容貼到下方區域裡。',
-<<<<<<< HEAD
 	'code.pleaseInput' : 'Please input code.',
-=======
->>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 	'link.url' : 'URL',
 	'link.linkType' : '打開類型',
 	'link.newWindow' : '新窗口',

@@ -130,11 +130,7 @@ KindEditor.plugin('insertfile', function(K) {
 	self.clickToolbar(name, function() {
 		self.plugin.fileDialog({
 			clickFn : function(url, title) {
-<<<<<<< HEAD
 				var html = '<a class="ke-insertfile" href="' + url + '" data-ke-src="' + url + '" target="_blank">' + title + '</a>';
-=======
-				var html = '<a href="' + url + '" data-ke-src="' + url + '" target="_blank">' + title + '</a>';
->>>>>>> f1b7e11c8d2e51018bd0b4660876c2ed5e2afffd
 				self.insertHtml(html).hideDialog().focus();
 			}
 		});
