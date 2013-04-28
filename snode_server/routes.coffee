@@ -46,6 +46,7 @@ module.exports = (app) ->
   app.post '/admin/session', adminLogin.post
   app.all '/admin/*', adminLogin.auth
   app.get '/admin/index', adminLogin.index
+  app.get '/admin/reload', adminLogin.reloadCache
   app.get '/admin/blog/add', adminBlog.getAdd
   app.post '/admin/blog/add', adminBlog.postAdd
   app.get '/admin/blog/edit/:id', adminBlog.getEdit

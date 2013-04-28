@@ -66,3 +66,9 @@ exports.db = class db
       values.push "#{val}"
     sqlStr = "DELETE FROM `#{table}` WHERE #{columns.join(' AND ')}"
     @query sqlStr, values, callback
+  @findById: (table, id, callback) ->
+    sql = "SELECT * FROM `#{table}` WHERE id = ?"
+    @query sql, id, callback
+  @findAll: (table, callback) ->
+    sql = "SELECT * FROM `#{table}` ORDER BY `id` DESC"
+    @query sql, callback

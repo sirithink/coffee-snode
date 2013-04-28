@@ -20,7 +20,7 @@ exports.dbCache = class dbCache
       blogs = _this.resetObj(data)
       cache.put 'blogs', blogs
       for blog in blogs
-        blog.content = htmlFilter.clean blog.content
+        blog.content = blog.content
         cache.put blog.id, blog
     db.query sqlBlogs, (error, data) ->
       blogs = _this.resetObj(data)

@@ -109,6 +109,20 @@ exports.db = db = (function() {
     return this.query(sqlStr, values, callback);
   };
 
+  db.findById = function(table, id, callback) {
+    var sql;
+
+    sql = "SELECT * FROM `" + table + "` WHERE id = ?";
+    return this.query(sql, id, callback);
+  };
+
+  db.findAll = function(table, callback) {
+    var sql;
+
+    sql = "SELECT * FROM `" + table + "` ORDER BY `id` DESC";
+    return this.query(sql, callback);
+  };
+
   return db;
 
 })();

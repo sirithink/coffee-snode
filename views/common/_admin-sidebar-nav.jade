@@ -3,11 +3,13 @@ addClass  = addClass  == null ? '' : 'active'
 editClass = editClass == null ? '' : 'active'
 .well.sidebar-nav
     ul.nav.nav-list
-        li.nav-header Blog
+        li.nav-header 博文
         li(class=listClass)
-            a(href="/admin/index") Blog List
+            a(href="/admin/index") 文章列表
         li(class=addClass)
-            a(href="/admin/blog/add") Blog Add
+            a(href="/admin/blog/add") 写博
         li(class=editClass)
-            a Blog Edit
+            a 编辑
+        li
+            a(href="/admin/reload") 刷新缓存
 //.well

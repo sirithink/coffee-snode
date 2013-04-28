@@ -37,7 +37,7 @@ exports.dbCache = dbCache = (function() {
       _results = [];
       for (_i = 0, _len = blogs.length; _i < _len; _i++) {
         blog = blogs[_i];
-        blog.content = htmlFilter.clean(blog.content);
+        blog.content = blog.content;
         _results.push(cache.put(blog.id, blog));
       }
       return _results;
