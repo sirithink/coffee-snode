@@ -54,7 +54,7 @@ templateLoader.load(["HomeView", "HeaderView", "BlogItemView", "AboutView"],
             message: "加载中，请稍后...",
             css: {border:'none',padding:'15px',backgroundColor:'#000','-webkit-border-radius':'10px','-moz-border-radius':'10px',opacity:.5,color:'#fff'}
         });
-        $.getJSON('http://snode.rs.af.cm/json?callback=?', function(data) {
+        $.getJSON('http://jnode.cloudfoundry.com/json?callback=?', function(data) {
             cache.put('blogs', data);
             $.unblockUI();
             app = new Router();
