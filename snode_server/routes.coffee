@@ -55,8 +55,5 @@ module.exports = (app) ->
   ###
   page note Found
   ###
-  app.get '*', (req, res, next) ->
-    if /.*\.(gif|jpg|jpeg|png|bmp|js|css|html).*$/.test req.originalUrl
-      next()
-    else
+  app.all '*', (req, res) ->
       res.render 'error/404'

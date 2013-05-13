@@ -22,10 +22,10 @@ app.configure ->
     app.use express.methodOverride()
     app.use express.cookieParser()
     app.use express.session secret: config.secret
-    app.use app.router
     # app.use express.static path.join __dirname, '/../public'
     app.use gzippo.staticGzip path.join __dirname, '/../public'
-    app.use (error, req, res, next) ->
+	app.use app.router
+	app.use (error, req, res, next) ->
         res.render 'error/500'
 
 

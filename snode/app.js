@@ -35,11 +35,13 @@ app.configure(function() {
   app.use(express.session({
     secret: config.secret
   }));
-  app.use(app.router);
-  app.use(gzippo.staticGzip(path.join(__dirname, '/../public')));
-  return app.use(function(error, req, res, next) {
-    return res.render('error/500');
-  });
+  return app.use(gzippo.staticGzip(path.join(__dirname, '/../public')));
+});
+
+app.use(app.router);
+
+app.use(function(error, req, res, next) {
+  return res.render('error/500');
 });
 
 app.configure('development', function() {

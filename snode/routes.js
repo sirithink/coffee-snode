@@ -54,11 +54,7 @@ module.exports = function(app) {
   page note Found
   */
 
-  return app.get('*', function(req, res, next) {
-    if (/.*\.(gif|jpg|jpeg|png|bmp|js|css|html).*$/.test(req.originalUrl)) {
-      return next();
-    } else {
-      return res.render('error/404');
-    }
+  return app.all('*', function(req, res) {
+    return res.render('error/404');
   });
 };
