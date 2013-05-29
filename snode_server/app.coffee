@@ -24,8 +24,8 @@ app.configure ->
     app.use express.session secret: config.secret
     # app.use express.static path.join __dirname, '/../public'
     app.use gzippo.staticGzip path.join __dirname, '/../public'
-	app.use app.router
-	app.use (error, req, res, next) ->
+    app.use app.router
+    app.use (error, req, res, next) ->
         res.render 'error/500'
 
 
